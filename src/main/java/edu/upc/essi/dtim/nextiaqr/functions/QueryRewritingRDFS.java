@@ -33,6 +33,7 @@ import org.apache.jena.sparql.algebra.op.OpProject;
 import org.apache.jena.sparql.algebra.op.OpTable;
 import org.apache.jena.sparql.core.BasicPattern;
 import org.apache.jena.sparql.core.Var;
+import org.apache.jena.vocabulary.RDFS;
 import org.jgrapht.Graph;
 import org.jgrapht.Graphs;
 import org.jgrapht.graph.SimpleDirectedGraph;
@@ -160,15 +161,21 @@ public class QueryRewritingRDFS {
         // Populate featuresPerAttribute
         RDFUtil.runAQuery("SELECT DISTINCT ?a ?f ?g WHERE { GRAPH ?g {" +
                 "{ ?a <" + Namespaces.owl.val() + "sameAs> ?f . " +
-                "?f <" + Namespaces.rdf.val() + "type> <" + Namespaces.rdfs.val() + "Property> }" +
+                "?f <" + Namespaces.rdf.val() + "type> <" + Namespaces.rdf.val() + "Property> }" +
                 "UNION" +
                 "{ ?a <" + Namespaces.owl.val() + "sameAs> ?f . " +
-                "?f <" + Namespaces.rdf.val() + "type> <"+Namespaces.nextiadi.val()+"IntegrationDProperty> } } }",T).forEachRemaining(af -> {
+                "?f <" + Namespaces.rdf.val() + "type> <"+Namespaces.nextiadi.val()+"IntegratedDatatypeProperty> } } }",T).forEachRemaining(af -> {
             featuresPerAttribute.putIfAbsent(af.get("a").asResource().getURI(),af.get("f").asResource().getURI());
             attributePerFeatureAndWrapper.put(new Tuple2<>(new Wrapper(af.get("g").asResource().getURI()),
                     af.get("f").asResource().getURI()),af.get("a").asResource().getURI());
         });
 
+
+//        featuresPerAttribute.putIfAbsent("http://www.essi.upc.edu/DTIM/NextiaDI/DataSource/Schema/90d09eb90ea146b4a243f607ec13581d/p2.createdAt","http://www.essi.upc.edu/DTIM/NextiaDI/DataSource/Schema/90d09eb90ea146b4a243f607ec13581d/p2.createdAt");
+//        attributePerFeatureAndWrapper.put(new Tuple2<>(new Wrapper("http://www.essi.upc.edu/DTIM/NextiaDI/DataSource/90d09eb90ea146b4a243f607ec13581d"),
+//                "http://www.essi.upc.edu/DTIM/NextiaDI/DataSource/Schema/90d09eb90ea146b4a243f607ec13581d/p2.createdAt"),
+//                "http://www.essi.upc.edu/DTIM/NextiaDI/DataSource/Schema/90d09eb90ea146b4a243f607ec13581d/p2.createdAt");
+//
 
         // Populate attributePerFeatureAndWrapper
         /*allTriplesPerWrapper.forEach((w,triples) -> {
@@ -186,10 +193,11 @@ public class QueryRewritingRDFS {
 
         // Populate featuresPerConceptInQuery
         queryPattern.forEach(t -> {
-            if (!t.getObject().getURI().equals(Namespaces.nextiadi.val()+"IntegrationDProperty") &&
-                    !t.getObject().getURI().equals(Namespaces.nextiadi.val()+"IntegrationClass")) {
+            if (!t.getObject().getURI().equals(Namespaces.nextiadi.val()+"IntegratedDatatypeProperty") &&
+                    !t.getObject().getURI().equals(Namespaces.nextiadi.val()+"IntegratedClass") &&
+                    !t.getObject().getURI().equals(Namespaces.rdf.val()+"Property")) {
                 RDFUtil.runAQuery("SELECT ?f WHERE { GRAPH ?g { " +
-                        "{ ?f <" + Namespaces.rdf.val() + "type> <" + Namespaces.nextiadi.val() + "IntegrationClass> }" +
+                        "{ ?f <" + Namespaces.rdf.val() + "type> <" + Namespaces.nextiadi.val() + "IntegratedClass> }" +
                         "UNION" +
                         "{ ?f <" + Namespaces.rdf.val() + "type> <" + Namespaces.rdfs.val() + "Class> }" +
                         " }}", T).forEachRemaining(q -> {
@@ -299,12 +307,14 @@ public class QueryRewritingRDFS {
     private static Set<ConjunctiveQuery> getConceptCoveringCQs(String c, InfModel PHI_o, Dataset T) {
         Map<Wrapper,Set<String>> attsPerWrapper = Maps.newHashMap();
         Set<String> F = Sets.newHashSet();
-        RDFUtil.runAQuery("SELECT DISTINCT ?f WHERE { " +
+        String query = "SELECT DISTINCT ?f WHERE { " +
                 "{ ?f <" + Namespaces.rdfs.val() + "domain> <"+c+"> . " +
-                "?f <" + Namespaces.rdf.val() + "type> <" + Namespaces.rdfs.val() + "Property> }" +
+                "?f <" + Namespaces.rdf.val() + "type> <" + Namespaces.rdf.val() + "Property> }" +
                 "UNION" +
                 "{ ?f <" + Namespaces.rdfs.val() + "domain> <"+c+"> . " +
-                "?f <" + Namespaces.rdf.val() + "type> <"+Namespaces.nextiadi.val()+"IntegrationDProperty> } }",PHI_o)
+                "?f <" + Namespaces.rdf.val() + "type> <"+Namespaces.nextiadi.val()+"IntegratedDatatypeProperty> } }";
+        System.out.println("Q is:\n"+query);
+        RDFUtil.runAQuery(query,PHI_o)
                     .forEachRemaining(f -> F.add(f.get("f").asResource().getURI()));
         //Case when the Concept has no data, we need to identify the wrapper using the concept instead of the feature
         if (F.isEmpty()) {
@@ -409,11 +419,11 @@ public class QueryRewritingRDFS {
             if ( RDFUtil.runAskQuery("ASK WHERE { GRAPH ?g {" +
                     "{ <"+t.getSubject().getURI()+"> <"+Namespaces.rdf.val()+"type> <"+Namespaces.rdfs.val()+"Class> . <"+t.getObject().getURI()+"> <"+Namespaces.rdf.val()+"type> <"+Namespaces.rdfs.val()+"Class> .  } " +
                     "UNION" +
-                    "{ <"+t.getSubject().getURI()+"> <"+Namespaces.rdf.val()+"type> <"+Namespaces.rdfs.val()+"Class> . <"+t.getObject().getURI()+"> <"+Namespaces.rdf.val()+"type> <"+Namespaces.nextiadi.val()+"IntegrationClass> .  } " +
+                    "{ <"+t.getSubject().getURI()+"> <"+Namespaces.rdf.val()+"type> <"+Namespaces.rdfs.val()+"Class> . <"+t.getObject().getURI()+"> <"+Namespaces.rdf.val()+"type> <"+Namespaces.nextiadi.val()+"IntegratedClass> .  } " +
                     "UNION" +
-                    "{ <"+t.getSubject().getURI()+"> <"+Namespaces.rdf.val()+"type> <"+Namespaces.nextiadi.val()+"IntegrationClass> . <"+t.getObject().getURI()+"> <"+Namespaces.rdf.val()+"type> <"+Namespaces.rdfs.val()+"Class> .  } " +
+                    "{ <"+t.getSubject().getURI()+"> <"+Namespaces.rdf.val()+"type> <"+Namespaces.nextiadi.val()+"IntegratedClass> . <"+t.getObject().getURI()+"> <"+Namespaces.rdf.val()+"type> <"+Namespaces.rdfs.val()+"Class> .  } " +
                     "UNION" +
-                    "{ <"+t.getSubject().getURI()+"> <"+Namespaces.rdf.val()+"type> <"+Namespaces.nextiadi.val()+"IntegrationClass> . <"+t.getObject().getURI()+"> <"+Namespaces.rdf.val()+"type> <"+Namespaces.nextiadi.val()+"IntegrationClass> .  } " +
+                    "{ <"+t.getSubject().getURI()+"> <"+Namespaces.rdf.val()+"type> <"+Namespaces.nextiadi.val()+"IntegratedClass> . <"+t.getObject().getURI()+"> <"+Namespaces.rdf.val()+"type> <"+Namespaces.nextiadi.val()+"IntegratedClass> .  } " +
                     "} }",T) && !t.getObject().getURI().equals(Namespaces.sc.val()+"identifier")) {
                 conceptsGraph.addVertex(t.getSubject().getURI());
                 conceptsGraph.addVertex(t.getObject().getURI());
@@ -430,8 +440,19 @@ public class QueryRewritingRDFS {
             //}
         });
         // This is required when only one concept is queried, where all edges are hasFeature
+        // Javier: I think there will be more bugs, try to validate with more examples.
         if (conceptsGraph.vertexSet().isEmpty()) {
-            conceptsGraph.addVertex(PHI_p.getList().get(0).getObject().getURI());
+//            conceptsGraph.addVertex(PHI_p.getList().get(0).getObject().getURI());
+            for(Triple t : PHI_p.getList()){
+                if(t.getPredicate().getURI().equals(RDFS.domain.getURI()) ) {
+                    conceptsGraph.addVertex(t.getObject().getURI());
+                    System.out.println("****" + t.getObject().getURI());
+                    break;
+                }
+            }
+            if (conceptsGraph.vertexSet().isEmpty()) {
+                System.out.println("PROBLEM IDENTIFYING WHEN ONLY ONE CONCEPT IS QUERIED.");
+            }
         }
 
         IntegrationGraph G = new IntegrationGraph();

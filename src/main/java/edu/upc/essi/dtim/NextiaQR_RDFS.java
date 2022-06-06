@@ -2,16 +2,14 @@ package edu.upc.essi.dtim;
 
 import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
-import edu.upc.essi.dtim.nextiaqr.functions.QueryRewriting;
 import edu.upc.essi.dtim.nextiaqr.functions.QueryRewritingRDFS;
 import edu.upc.essi.dtim.nextiaqr.jena.GraphOperations;
 import edu.upc.essi.dtim.nextiaqr.jena.RDFUtil;
 import edu.upc.essi.dtim.nextiaqr.models.metamodel.Namespaces;
 import edu.upc.essi.dtim.nextiaqr.models.querying.ConjunctiveQuery;
 import edu.upc.essi.dtim.nextiaqr.models.querying.GenericWrapper;
+import edu.upc.essi.dtim.nextiaqr.models.querying.RDFSResult;
 import edu.upc.essi.dtim.nextiaqr.models.querying.Wrapper;
-import edu.upc.essi.dtim.nextiaqr.models.querying.wrapper_impl.CSV_Wrapper;
-import edu.upc.essi.dtim.nextiaqr.utils.SQLiteUtils;
 import edu.upc.essi.dtim.nextiaqr.utils.Utils;
 import org.apache.jena.query.Dataset;
 import org.apache.jena.query.DatasetFactory;
@@ -19,29 +17,27 @@ import org.apache.jena.query.QuerySolution;
 import org.apache.jena.rdf.model.Model;
 import org.apache.jena.riot.Lang;
 import org.apache.jena.riot.RDFDataMgr;
-import org.apache.spark.sql.SparkSession;
+import org.apache.spark.sql.Row;
 import org.glassfish.jersey.internal.guava.Sets;
 
-import java.util.Comparator;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 import java.util.stream.Collectors;
 
 public class NextiaQR_RDFS {
 
-    public static void rewriteToUnionOfConjunctiveQueries(Map<String, Model> sourceGraphs, Model minimal,
-                                                                           Map<String, Model> subgraphs, String query) {
+    public static RDFSResult rewriteToUnionOfConjunctiveQueries(Map<String, Model> sourceGraphs, Model minimal,
+                                                                Map<String, Model> subgraphs, String query) {
         Dataset T = DatasetFactory.create();
         T.addNamedModel("minimal",minimal);
         sourceGraphs.forEach(T::addNamedModel);
         subgraphs.forEach(T::addNamedModel);
 
         Set<ConjunctiveQuery> cqs = QueryRewritingRDFS.rewriteToUnionOfConjunctiveQueries(query,T);
+        System.out.println("ConjuctiveQueries:");
         cqs.forEach(System.out::println);
         String SQL = toSQL(cqs,T);
         System.out.println(SQL);
-        executeSQL(cqs,SQL,T);
+        return executeSQL(cqs,SQL,T);
     }
 
     public static String toSQL (Set<ConjunctiveQuery> UCQ, Dataset T) {
@@ -89,7 +85,7 @@ public class NextiaQR_RDFS {
         return SQLstr;
     }
 
-    public static void executeSQL(Set<ConjunctiveQuery> UCQs, String SQL, Dataset T) {
+    public static RDFSResult executeSQL(Set<ConjunctiveQuery> UCQs, String SQL, Dataset T) {
         if (UCQs.isEmpty() || SQL == null) {
             System.out.println("The UCQ is empty, no output is generated");
         } else {
@@ -128,8 +124,16 @@ public class NextiaQR_RDFS {
                 SQL = SQL.replace(GraphOperations.nn(w.getWrapper()),GraphOperations.nn(w.getWrapper())+ " AS "+w.getLabel());
             }
 
-            Utils.getSparkSession().sql(SQL).show();
+            RDFSResult res = new RDFSResult();
+            org.apache.spark.sql.Dataset<Row> df = Utils.getSparkSession().sql(SQL);
+            List<String> col = new ArrayList<>();
+            df.schema().foreach(f -> col.add(f.name()));
+            List<String> rows = df.toJSON().collectAsList();
+            res.setColumns(col);
+            res.setRows(rows);
+            return res;
         }
+        return null;
     }
 
     public static void main(String[] args) {
@@ -147,6 +151,7 @@ public class NextiaQR_RDFS {
         subgraphs.put("http://www.essi.upc.edu/DTIM/NextiaDI/DataSource/28cd712c43eb4fddb0e4ea4e6e302737",
                 RDFDataMgr.loadModel("src/test/resources/qr_rdfs/subgraphs11519542500731068756.g", Lang.TTL));
 
+        //TODO: use IntegratedDatatypeProperty from nextiaDI class.
         String query = "PREFIX nextiaDI: <http://www.essi.upc.edu/DTIM/NextiaDI/> \n" +
                 "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> \n" +
                 "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> \n" +
@@ -155,10 +160,22 @@ public class NextiaQR_RDFS {
                 " VALUES (?id ?title) { ( nextiaDI:identifier_idObject nextiaDI:title_title ) } " +
                 " nextiaDI:identifier_idObject  rdfs:domain nextiaDI:artworks_collections . " +
                 " nextiaDI:title_title rdfs:domain nextiaDI:artworks_collections . " +
-                " nextiaDI:artworks_collection rdf:type nextiaDI:IntegrationClass ." +
-                " nextiaDI:identifier_idObject rdf:type nextiaDI:IntegrationDProperty ." +
-                " nextiaDI:title_title rdf:type nextiaDI:IntegrationDProperty " +
+                " nextiaDI:artworks_collection rdf:type nextiaDI:IntegratedClass ." +
+                " nextiaDI:identifier_idObject rdf:type nextiaDI:IntegratedDatatypeProperty ." +
+                " nextiaDI:title_title rdf:type nextiaDI:IntegratedDatatypeProperty " +
                 "}";
+
+//        String query = "PREFIX nextiaDI: <http://www.essi.upc.edu/DTIM/NextiaDI/> \n" +
+//                "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> \n" +
+//                "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> \n" +
+//                "SELECT ?title " +
+//                "WHERE { " +
+//                " VALUES ( ?title) { ( nextiaDI:title_title ) } " +
+//                " nextiaDI:title_title rdf:type nextiaDI:IntegratedDatatypeProperty ." +
+//                " nextiaDI:title_title rdfs:domain nextiaDI:artworks_collections . " +
+//                " nextiaDI:artworks_collection rdf:type nextiaDI:IntegratedClass ." +
+//
+//                "}";
 
         rewriteToUnionOfConjunctiveQueries(sourceGraphs,minimal,subgraphs,query);
     }

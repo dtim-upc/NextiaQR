@@ -1,9 +1,11 @@
 plugins {
     id 'java'
+    id 'maven-publish'
+    id 'signing'
 }
 
 group 'edu.upc.essi.dtim'
-version '1.0-SNAPSHOT'
+version '0.1.0-SNAPSHOT'
 
 repositories {
     mavenCentral()
@@ -23,9 +25,9 @@ dependencies {
     //implementation 'org.apache.spark:spark-core_2.11:2.4.3'
     //implementation 'org.apache.spark:spark-sql_2.11:2.4.3'
 
-    implementation group: 'org.apache.spark', name: 'spark-core_2.13', version: '3.2.0'
-    implementation group: 'org.apache.spark', name: 'spark-sql_2.13', version: '3.2.0'
-
+    //Javier: check difference of spark-core_2.12 vs spark-core_2.13
+    implementation group: 'org.apache.spark', name: 'spark-core_2.12', version: '3.2.1'
+    implementation group: 'org.apache.spark', name: 'spark-sql_2.12', version: '3.2.1'
 
     implementation group: 'org.postgresql', name: 'postgresql', version: '42.2.6'
     implementation group: 'postgresql', name: 'postgresql', version: '9.1-901-1.jdbc4'
@@ -44,7 +46,7 @@ dependencies {
     compileOnly group: 'org.projectlombok', name: 'lombok', version: '1.18.20'
     annotationProcessor group: 'org.projectlombok', name: 'lombok', version: '1.18.20'
 
-    testCompile group: 'junit', name: 'junit', version: '4.12'
+    testImplementation group: 'junit', name: 'junit', version: '4.12'
 }
 
 
@@ -68,5 +70,89 @@ task uberJar(type: Jar) {
     dependsOn configurations.runtimeClasspath
     from {
         configurations.runtimeClasspath.findAll { it.name.endsWith('jar') }.collect { zipTree(it) }
+    }
+}
+
+
+
+signing {
+    required {
+        // signing is required if this is a release version and the artifacts are to be published
+        !version.toString().endsWith('-SNAPSHOT') && tasks.withType(PublishToMavenRepository).find {
+            gradle.taskGraph.hasTask it
+        }
+    }
+    sign publishing.publications
+}
+
+java {
+    withJavadocJar()
+    withSourcesJar()
+}
+
+publishing {
+    publications {
+        mavenJava(MavenPublication) {
+            from components.java
+
+            versionMapping {
+                usage('java-api') {
+                    fromResolutionOf('runtimeClasspath')
+                }
+                usage('java-runtime') {
+                    fromResolutionResult()
+                }
+            }
+            pom {
+                name = 'NextiaDI'
+                description = 'A query rewriting algorithm'
+                url = 'https://www.essi.upc.edu/dtim/nextiadi/'
+                licenses {
+                    license {
+                        name = 'The Apache License, Version 2.0'
+                        url = 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+                    }
+                }
+                developers {
+                    developer {
+                        id = 'snadal'
+                        name = 'Sergi Nadal'
+                        email = 'snadal@essi.upc.edu'
+                        url = 'https://www.essi.upc.edu/dtim/people/snadal'
+                    }
+                    developer {
+                        id = 'jflores'
+                        name = 'Javier Flores'
+                        email = 'jflores@essi.upc.edu'
+                        url = 'https://www.essi.upc.edu/dtim/people/jflores'
+                    }
+                }
+                scm {
+                    connection = 'scm:git:git://github.com/dtim-upc/NextiaDI.git'
+                    developerConnection = 'scm:git:ssh://github.com/dtim-upc/NextiaDI.git'
+                    url = 'https://github.com/dtim-upc/NextiaDI'
+                }
+            }
+        }
+    }
+    repositories {
+        maven {
+            credentials {
+                // nexusUsername and nexusPassword are in gradle.properties file.
+                username nexusUsername
+                password nexusPassword
+            }
+
+            def releasesRepoUrl = 'https://s01.oss.sonatype.org/service/local/staging/deploy/maven2/'
+            def snapshotsRepoUrl = 'https://s01.oss.sonatype.org/content/repositories/snapshots/'
+            url = version.endsWith('SNAPSHOT') ? snapshotsRepoUrl : releasesRepoUrl
+
+        }
+    }
+}
+
+javadoc {
+    if(JavaVersion.current().isJava9Compatible()) {
+        options.addBooleanOption('html5', true)
     }
 }

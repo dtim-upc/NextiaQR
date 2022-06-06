@@ -3,6 +3,7 @@ package edu.upc.essi.dtim.utils;
 import com.google.common.collect.Maps;
 import com.google.common.collect.Sets;
 import edu.upc.essi.dtim.NextiaQR;
+import edu.upc.essi.dtim.NextiaQR_RDFS;
 import edu.upc.essi.dtim.nextiaqr.functions.QueryRewriting;
 import edu.upc.essi.dtim.nextiaqr.models.querying.ConjunctiveQuery;
 import edu.upc.essi.dtim.nextiaqr.models.querying.Wrapper;
