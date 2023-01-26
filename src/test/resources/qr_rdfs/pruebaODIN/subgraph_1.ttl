@@ -1,0 +1,23 @@
+@prefix json:             <https://www.essi.upc.edu/dtim/json-metamodel#> .
+@prefix nextiaDataSource: <http://www.essi.upc.edu/DTIM/NextiaDI/DataSource/> .
+@prefix nextiaSchema:     <http://www.essi.upc.edu/DTIM/NextiaDI/DataSource/Schema/70ea6770f94745a98091d16810e391bb/> .
+@prefix rdf:              <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:             <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd:              <http://www.w3.org/2001/XMLSchema#> .
+
+<http://www.essi.upc.edu/DTIM/NextiaDI/name2_name>
+        rdf:type     rdf:Property ;
+        rdfs:domain  <http://www.essi.upc.edu/DTIM/NextiaDI/DataSource/Schema/8f9df4709b1444f1834a5f2aa6f55d86/Object_1> ;
+        rdfs:label   "name2_name" ;
+        rdfs:range   xsd:string ;
+        <http://www.essi.upc.edu/DTIM/NextiaDI/JoinProperty>
+                <http://www.essi.upc.edu/DTIM/NextiaDI/pop> .
+
+nextiaSchema:Object_1
+        rdf:type    rdfs:Class ;
+        rdfs:label  "museums" .
+
+nextiaSchema:country  rdf:type  rdf:Property ;
+        rdfs:domain  nextiaSchema:Object_1 ;
+        rdfs:label   "country" ;
+        rdfs:range   xsd:string .

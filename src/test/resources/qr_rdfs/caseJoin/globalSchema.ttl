@@ -1,0 +1,38 @@
+@prefix rdf:              <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:             <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd:              <http://www.w3.org/2001/XMLSchema#> .
+
+<http://www.essi.upc.edu/DTIM/NextiaDI/DataSource/Schema/fed397e85d1746e080fc7b952855e355/Object_1>
+        rdf:type    rdfs:Class ;
+        rdfs:label  "museums" .
+
+<http://www.essi.upc.edu/DTIM/NextiaDI/DataSource/Schema/b0e193ea4a81462eb0b24ff5b1801e6d/Object_1>
+        rdf:type    rdfs:Class ;
+        rdfs:label  "artworks" .
+
+<http://www.essi.upc.edu/DTIM/NextiaDI/DataSource/Schema/fed397e85d1746e080fc7b952855e355/country>  rdf:type  rdf:Property ;
+        rdfs:domain  <http://www.essi.upc.edu/DTIM/NextiaDI/DataSource/Schema/fed397e85d1746e080fc7b952855e355/Object_1> ;
+        rdfs:label   "country" ;
+        rdfs:range   xsd:string .
+
+<http://www.essi.upc.edu/DTIM/NextiaDI/has_artwork>  rdf:type  rdf:Property ;
+        rdfs:domain  <http://www.essi.upc.edu/DTIM/NextiaDI/DataSource/Schema/fed397e85d1746e080fc7b952855e355/Object_1> ;
+        rdfs:label   "has artworks" ;
+        rdfs:range   <http://www.essi.upc.edu/DTIM/NextiaDI/DataSource/Schema/b0e193ea4a81462eb0b24ff5b1801e6d/Object_1> .
+
+<http://www.essi.upc.edu/DTIM/NextiaDI/museum_name>
+        rdf:type     rdf:Property ;
+        rdfs:domain  <http://www.essi.upc.edu/DTIM/NextiaDI/DataSource/Schema/fed397e85d1746e080fc7b952855e355/Object_1> ;
+        rdfs:range   xsd:string ;
+        <http://www.essi.upc.edu/DTIM/NextiaDI/JoinProperty> <http://www.essi.upc.edu/DTIM/NextiaDI/has_artwork> .
+
+<http://www.essi.upc.edu/DTIM/NextiaDI/DataSource/Schema/b0e193ea4a81462eb0b24ff5b1801e6d/medium>  rdf:type  rdf:Property ;
+        rdfs:domain  <http://www.essi.upc.edu/DTIM/NextiaDI/DataSource/Schema/b0e193ea4a81462eb0b24ff5b1801e6d/Object_1> ;
+        rdfs:label   "medium" ;
+        rdfs:range   xsd:string .
+
+<http://www.essi.upc.edu/DTIM/NextiaDI/DataSource/Schema/b0e193ea4a81462eb0b24ff5b1801e6d/displayed_in>
+        rdf:type     rdf:Property ;
+        rdfs:domain  <http://www.essi.upc.edu/DTIM/NextiaDI/DataSource/Schema/b0e193ea4a81462eb0b24ff5b1801e6d/Object_1> ;
+        rdfs:label   "displayed_in" ;
+        rdfs:range   xsd:string .

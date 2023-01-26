@@ -21,7 +21,7 @@ nextiaSchema:collections.createdAt
 <http://www.essi.upc.edu/DTIM/NextiaDI/DataSource/Schema/824f259815094f79bb0a5cac03ae8348/artworks.identifier>
         rdfs:subClassOf  <http://schema.org/identifier> .
 
-nextiaDI:title_title  rdf:type  nextiaDI:IntegrationDProperty ;
+nextiaDI:title_title  rdf:type  nextiaDI:IntegratedDatatypeProperty ;
         rdfs:domain  nextiaDI:artworks_collections ;
         rdfs:range   xsd:string .
 
@@ -29,7 +29,7 @@ nextiaSchema:collections.idObject
         rdfs:subClassOf  <http://schema.org/identifier> .
 
 nextiaDI:artworks_collections
-        rdf:type  nextiaDI:IntegrationClass .
+        rdf:type  nextiaDI:IntegratedClass .
 
 nextiaSchema:collections.madeBy
         rdf:type     rdf:Property ;
@@ -45,6 +45,6 @@ nextiaSchema:collections.domain
         nextiaDI:isMinimalOf  nextiaDataSource:01ad337680d94ef38e4740154d6ddb6e .
 
 nextiaDI:identifier_idObject
-        rdf:type     nextiaDI:IntegrationDProperty ;
+        rdf:type     nextiaDI:IntegratedDatatypeProperty ;
         rdfs:domain  nextiaDI:artworks_collections ;
         rdfs:range   xsd:string .

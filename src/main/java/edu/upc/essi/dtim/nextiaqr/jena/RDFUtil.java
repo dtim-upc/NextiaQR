@@ -2,6 +2,7 @@ package edu.upc.essi.dtim.nextiaqr.jena;
 
 import org.apache.jena.query.*;
 import org.apache.jena.rdf.model.InfModel;
+import org.apache.jena.rdf.model.Model;
 
 public class RDFUtil {
     public static ResultSet runAQuery(String sparqlQuery, Dataset ds) {
@@ -36,5 +37,19 @@ public class RDFUtil {
 
         return null;
     }
+
+    public static ResultSet runAQuery(String sparqlQuery, Model o) {
+        try (QueryExecution qExec = QueryExecutionFactory.create(QueryFactory.create(sparqlQuery), o)) {
+            ResultSetRewindable results = ResultSetFactory.copyResults(qExec.execSelect());
+            qExec.close();
+            return results;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return null;
+    }
+
+
 
 }

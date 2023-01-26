@@ -1,0 +1,37 @@
+@prefix json:             <https://www.essi.upc.edu/dtim/json-metamodel#> .
+@prefix nextiaDataSource: <http://www.essi.upc.edu/DTIM/NextiaDI/DataSource/> .
+@prefix nextiaSchema:     <http://www.essi.upc.edu/DTIM/NextiaDI/DataSource/Schema/fed397e85d1746e080fc7b952855e355/> .
+@prefix rdf:              <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:             <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd:              <http://www.w3.org/2001/XMLSchema#> .
+@prefix owl:              <http://www.w3.org/2002/07/owl#> .
+
+nextiaSchema:country  rdf:type  rdf:Property ;
+        rdfs:domain  nextiaSchema:Object_1 ;
+        rdfs:label   "country" ;
+        rdfs:range   xsd:string ;
+        owl:sameAs nextiaSchema:country.
+
+nextiaSchema:name  rdf:type  rdf:Property ;
+        rdfs:domain  nextiaSchema:Object_1 ;
+        rdfs:label   "name" ;
+        rdfs:range   xsd:string ;
+        owl:sameAs <http://www.essi.upc.edu/DTIM/NextiaDI/museum_name>.
+
+nextiaSchema:Object_1
+        rdf:type    rdfs:Class ;
+        rdfs:label  "museums" .
+
+nextiaDataSource:fed397e85d1746e080fc7b952855e355
+        rdf:type                       <http://www.essi.upc.edu/DTIM/NextiaDI/DataSource> ;
+        rdfs:label                     "museums" ;
+        nextiaDataSource:description   "" ;
+        nextiaDataSource:format        "JSON" ;
+        nextiaDataSource:graphicalGraph
+                "{\"nodes\":[{\"id\":\"Class1\",\"iri\":\"http://www.essi.upc.edu/DTIM/NextiaDI/DataSource/Schema/fed397e85d1746e080fc7b952855e355/Object_1\",\"iriType\":\"http://www.w3.org/2000/01/rdf-schema#Class\",\"shortType\":\"rdfs:Class\",\"type\":\"class\",\"label\":\"museums\",\"domain\":\"\",\"range\":\"\",\"isIntegrated\":false},{\"id\":\"Class2\",\"iri\":\"http://www.essi.upc.edu/DTIM/NextiaDI/DataSource/Schema/fed397e85d1746e080fc7b952855e355/name\",\"iriType\":\"http://www.w3.org/1999/02/22-rdf-syntax-ns#Property\",\"shortType\":\"rdf:Property\",\"type\":\"datatype\",\"label\":\"name\",\"domain\":\"http://www.essi.upc.edu/DTIM/NextiaDI/DataSource/Schema/fed397e85d1746e080fc7b952855e355/Object_1\",\"range\":\"http://www.w3.org/2001/XMLSchema#string\",\"isIntegrated\":false,\"linkId\":\"Link1\"},{\"id\":\"Class3\",\"iri\":\"http://www.essi.upc.edu/DTIM/NextiaDI/DataSource/Schema/fed397e85d1746e080fc7b952855e355/country\",\"iriType\":\"http://www.w3.org/1999/02/22-rdf-syntax-ns#Property\",\"shortType\":\"rdf:Property\",\"type\":\"datatype\",\"label\":\"country\",\"domain\":\"http://www.essi.upc.edu/DTIM/NextiaDI/DataSource/Schema/fed397e85d1746e080fc7b952855e355/Object_1\",\"range\":\"http://www.w3.org/2001/XMLSchema#string\",\"isIntegrated\":false,\"linkId\":\"Link2\"},{\"id\":\"Datatype5\",\"iri\":\"http://www.w3.org/2001/XMLSchema#string\",\"shortType\":\"xsd:String\",\"type\":\"xsdType\",\"label\":\"string\",\"domain\":\"\",\"range\":\"\",\"isIntegrated\":false},{\"id\":\"Datatype6\",\"iri\":\"http://www.w3.org/2001/XMLSchema#string\",\"shortType\":\"xsd:String\",\"type\":\"xsdType\",\"label\":\"string\",\"domain\":\"\",\"range\":\"\",\"isIntegrated\":false}],\"links\":[{\"id\":\"Link1\",\"nodeId\":\"Class2\",\"source\":\"Class1\",\"target\":\"Datatype5\",\"label\":\"name\"},{\"id\":\"Link2\",\"nodeId\":\"Class3\",\"source\":\"Class1\",\"target\":\"Datatype6\",\"label\":\"country\"}]}" ;
+        nextiaDataSource:hasFileName   "vGNfHWOswmHAeBS1_museums.json" ;
+        nextiaDataSource:hasFileSize   "40bytes" ;
+        nextiaDataSource:hasProjectID  "2f4f35a768804d509df201d9c4832cf7" ;
+        nextiaDataSource:id            "fed397e85d1746e080fc7b952855e355" ;
+        nextiaDataSource:path          "/Users/javierflores/Documents/upc/projects/NextiaQR/src/test/resources/qr_rdfs/caseJoin/museums.json" ;
+        nextiaDataSource:wrapper       "SELECT country,name FROM museums " .

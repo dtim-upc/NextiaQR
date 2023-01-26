@@ -1,0 +1,14 @@
+@prefix json:             <https://www.essi.upc.edu/dtim/json-metamodel#> .
+@prefix nextiaDataSource: <http://www.essi.upc.edu/DTIM/NextiaDI/DataSource/> .
+@prefix nextiaSchema:     <http://www.essi.upc.edu/DTIM/NextiaDI/DataSource/Schema/38530e7457fd4c27ba2fe6ba7429377f/> .
+@prefix rdf:              <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:             <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd:              <http://www.w3.org/2001/XMLSchema#> .
+
+nextiaSchema:fc  rdfs:subClassOf  <http://schema.org/identifier> .
+
+nextiaSchema:mda  rdfs:subClassOf  <http://schema.org/identifier> .
+
+nextiaSchema:gender  rdfs:subClassOf  <http://schema.org/identifier> .
+
+nextiaSchema:date  rdfs:subClassOf  <http://schema.org/identifier> .

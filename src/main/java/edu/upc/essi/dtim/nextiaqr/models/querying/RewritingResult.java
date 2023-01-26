@@ -1,11 +1,16 @@
 package edu.upc.essi.dtim.nextiaqr.models.querying;
 
 import com.google.common.collect.Maps;
+import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 import org.glassfish.jersey.internal.guava.Sets;
+import scala.annotation.meta.getter;
 
 import java.util.Map;
 import java.util.Set;
 
+@Getter @Setter
 public class RewritingResult {
 
     Set<ConjunctiveQuery> CQs;
@@ -18,27 +23,5 @@ public class RewritingResult {
         featuresPerAttribute = Maps.newHashMap();
     }
 
-    public Set<ConjunctiveQuery> getCQs() {
-        return CQs;
-    }
 
-    public void setCQs(Set<ConjunctiveQuery> CQs) {
-        this.CQs = CQs;
-    }
-
-    public Map<String, Integer> getProjectionOrder() {
-        return projectionOrder;
-    }
-
-    public void setProjectionOrder(Map<String, Integer> projectionOrder) {
-        this.projectionOrder = projectionOrder;
-    }
-
-    public Map<String, String> getFeaturesPerAttribute() {
-        return featuresPerAttribute;
-    }
-
-    public void setFeaturesPerAttribute(Map<String, String> featuresPerAttribute) {
-        this.featuresPerAttribute = featuresPerAttribute;
-    }
 }

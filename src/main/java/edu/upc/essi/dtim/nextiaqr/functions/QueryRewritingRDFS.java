@@ -12,6 +12,7 @@ import edu.upc.essi.dtim.nextiaqr.models.metamodel.Namespaces;
 import edu.upc.essi.dtim.nextiaqr.models.metamodel.SourceGraph;
 import edu.upc.essi.dtim.nextiaqr.models.querying.ConjunctiveQuery;
 import edu.upc.essi.dtim.nextiaqr.models.querying.EquiJoin;
+import edu.upc.essi.dtim.nextiaqr.models.querying.RewritingResult;
 import edu.upc.essi.dtim.nextiaqr.models.querying.Wrapper;
 import edu.upc.essi.dtim.nextiaqr.utils.Tuple2;
 import edu.upc.essi.dtim.nextiaqr.utils.Tuple3;
@@ -47,26 +48,26 @@ import java.util.stream.Collectors;
 @SuppressWarnings("Duplicates")
 public class QueryRewritingRDFS {
 
-    private static boolean isWrapper(String w) {
+    private boolean isWrapper(String w) {
         return w.contains("Wrapper") || w.contains("DataSource");
     }
     
-    private static void addTriple(BasicPattern pattern, String s, String p, String o) {
+    private void addTriple(BasicPattern pattern, String s, String p, String o) {
         pattern.add(new Triple(new ResourceImpl(s).asNode(), new PropertyImpl(p).asNode(), new ResourceImpl(o).asNode()));
     }
     //Used for adding triples in-memory
-    private static void addTriple(Model model, String s, String p, String o) {
+    private void addTriple(Model model, String s, String p, String o) {
         model.add(new ResourceImpl(s), new PropertyImpl(p), new ResourceImpl(o));
     }
 
-    private static OntModel ontologyFromPattern(BasicPattern PHI_p) {
+    private OntModel ontologyFromPattern(BasicPattern PHI_p) {
         OntModel o = ModelFactory.createOntologyModel();
         PHI_p.getList().forEach(t -> addTriple(o, t.getSubject().getURI(), t.getPredicate().getURI(), t.getObject().getURI()));
         return o;
     }
 
-    public static Map<String,Integer> projectionOrder = Maps.newHashMap();
-    public static Tuple3<Set<String>, BasicPattern, InfModel> parseSPARQL(String SPARQL) {
+    public Map<String,Integer> projectionOrder = Maps.newHashMap();
+    public Tuple3<Set<String>, BasicPattern, InfModel> parseSPARQL(String SPARQL) {
         // Compile the SPARQL using ARQ and generate its <pi,phi> representation
         Query q = QueryFactory.create(SPARQL);
         Op ARQ = Algebra.compile(q);
@@ -88,8 +89,8 @@ public class QueryRewritingRDFS {
     }
 
 
-    private static Map<BasicPattern, Map<Set<Wrapper>,Boolean>> coveringCache = Maps.newHashMap();
-    private static boolean covering(Set<Wrapper> W, BasicPattern PHI_p) {
+    private Map<BasicPattern, Map<Set<Wrapper>,Boolean>> coveringCache = Maps.newHashMap();
+    private boolean covering(Set<Wrapper> W, BasicPattern PHI_p) {
         if (coveringCache.containsKey(PHI_p) && coveringCache.get(PHI_p).containsKey(W)) return coveringCache.get(PHI_p).get(W);
         Set<Triple> coveredPattern = Sets.newHashSet();
         W.forEach(w -> {
@@ -101,7 +102,7 @@ public class QueryRewritingRDFS {
 //        return coveredPattern.containsAll(Sets.newHashSet(PHI_p.getList()));
     }
 
-    private static boolean minimal(Set<Wrapper> W, BasicPattern PHI_p) {
+    private boolean minimal(Set<Wrapper> W, BasicPattern PHI_p) {
         for (Wrapper w : W) {
             if (covering(Sets.difference(W,Sets.newHashSet(w)),PHI_p)) return false;
         }
@@ -109,19 +110,19 @@ public class QueryRewritingRDFS {
     }
 
     //contains all the triples from the global graph that a wrapper covers
-    private static Map<String,Set<Triple>> allTriplesPerWrapper = Maps.newHashMap();
+    private Map<String,Set<Triple>> allTriplesPerWrapper = Maps.newHashMap();
     //contains all IDs that a wrapper is covering in the query
-    private static Map<Wrapper,Set<String>> coveredIDsPerWrapperInQuery = Maps.newHashMap();
+    private Map<Wrapper,Set<String>> coveredIDsPerWrapperInQuery = Maps.newHashMap();
     // Set of all queried ID features
-    private static Set<String> queriedIDs = Sets.newHashSet();
+    private Set<String> queriedIDs = Sets.newHashSet();
     //contains the relation attribute - (sameAs) -> feature
-    public static Map<String,String> featuresPerAttribute = Maps.newHashMap();
+    public Map<String,String> featuresPerAttribute = Maps.newHashMap();
     //given a feature and a wrapper, it returns the corresponding attribute
-    private static Map<Tuple2<Wrapper,String>,String> attributePerFeatureAndWrapper = Maps.newHashMap();
+    private Map<Tuple2<Wrapper,String>,String> attributePerFeatureAndWrapper = Maps.newHashMap();
     //contains the set of features per concept in the query
-    private static Map<String,Set<String>> featuresPerConceptInQuery = Maps.newHashMap();
+    private Map<String,Set<String>> featuresPerConceptInQuery = Maps.newHashMap();
 
-    private static void populateOptimizedStructures(Dataset T, BasicPattern queryPattern) {
+    private void populateOptimizedStructures(Dataset T, BasicPattern queryPattern) {
         // Populate allTriplesPerWrapper
         RDFUtil.runAQuery("SELECT DISTINCT ?g WHERE { GRAPH ?g { ?s ?p ?o } }",T).forEachRemaining(w -> {
             String wrapper = w.get("g").asResource().getURI();
@@ -209,7 +210,7 @@ public class QueryRewritingRDFS {
         });
     }
 
-    private static Set<ConjunctiveQuery> combineSetsOfCQs(Set<ConjunctiveQuery> CQ_A, Set<ConjunctiveQuery> CQ_B,
+    private Set<ConjunctiveQuery> combineSetsOfCQs(Set<ConjunctiveQuery> CQ_A, Set<ConjunctiveQuery> CQ_B,
                                                           Set<Wrapper> edgeCoveringWrappers, BasicPattern PHI_p) {
         if (CQ_A.isEmpty() && CQ_B.isEmpty()) {
             return Sets.newHashSet();
@@ -246,7 +247,7 @@ public class QueryRewritingRDFS {
 
     }
 
-    private static ConjunctiveQuery mergeCQs(ConjunctiveQuery CQ_A, ConjunctiveQuery CQ_B) {
+    private ConjunctiveQuery mergeCQs(ConjunctiveQuery CQ_A, ConjunctiveQuery CQ_B) {
         ConjunctiveQuery mergedCQ = new ConjunctiveQuery();
         mergedCQ.getProjections().addAll(Sets.union(CQ_A.getProjections(),CQ_B.getProjections()));
         mergedCQ.getJoinConditions().addAll(Sets.union(CQ_A.getJoinConditions(),CQ_B.getJoinConditions()));
@@ -255,7 +256,7 @@ public class QueryRewritingRDFS {
         return mergedCQ;
     }
 
-    private static ConjunctiveQuery findJoins(ConjunctiveQuery CQ_A, ConjunctiveQuery CQ_B) {
+    private ConjunctiveQuery findJoins(ConjunctiveQuery CQ_A, ConjunctiveQuery CQ_B) {
         Set<String> IDa = Sets.newHashSet();
         CQ_A.getWrappers().forEach(w -> {
             IDa.addAll(coveredIDsPerWrapperInQuery.get(w));
@@ -284,7 +285,7 @@ public class QueryRewritingRDFS {
         return CQ;
     }
 
-    private static void getCoveringCQs(BasicPattern G, ConjunctiveQuery currentCQ, Set<ConjunctiveQuery> candidateCQs, Set<ConjunctiveQuery> coveringCQs) {
+    private void getCoveringCQs(BasicPattern G, ConjunctiveQuery currentCQ, Set<ConjunctiveQuery> candidateCQs, Set<ConjunctiveQuery> coveringCQs) {
         if (covering(currentCQ.getWrappers(),G)) {
             coveringCQs.add(currentCQ);
         }
@@ -304,7 +305,7 @@ public class QueryRewritingRDFS {
         }
     }
 
-    private static Set<ConjunctiveQuery> getConceptCoveringCQs(String c, InfModel PHI_o, Dataset T) {
+    private Set<ConjunctiveQuery> getConceptCoveringCQs(String c, InfModel PHI_o, Dataset T) {
         Map<Wrapper,Set<String>> attsPerWrapper = Maps.newHashMap();
         Set<String> F = Sets.newHashSet();
         String query = "SELECT DISTINCT ?f WHERE { " +
@@ -319,7 +320,7 @@ public class QueryRewritingRDFS {
         //Case when the Concept has no data, we need to identify the wrapper using the concept instead of the feature
         if (F.isEmpty()) {
             System.out.println("Case not checked when concept has no data");
-            System.exit(100);
+//            System.exit(100);
             //TODO check this!!!
             RDFUtil.runAQuery("SELECT ?g WHERE { GRAPH ?g { <" + c + "> <" + Namespaces.rdf.val() + "type" + "> <" + GlobalGraph.CONCEPT.val() + "> } }", T)
                     .forEachRemaining(wrapper -> {
@@ -391,7 +392,7 @@ public class QueryRewritingRDFS {
 
     }
 
-    private static Set<Wrapper> getEdgeCoveringWrappers(String s, String t, String e, Dataset T) {
+    private Set<Wrapper> getEdgeCoveringWrappers(String s, String t, String e, Dataset T) {
         Set<Wrapper> coveringWrappers = Sets.newHashSet();
         ResultSet W = RDFUtil.runAQuery("SELECT ?g " +
                 "WHERE { GRAPH ?g { <" + s + "> <" + e + "> <" + t + "> } }", T);
@@ -404,9 +405,10 @@ public class QueryRewritingRDFS {
     }
 
     @SuppressWarnings("Duplicates")
-    public static Set<ConjunctiveQuery> rewriteToUnionOfConjunctiveQueries(String query, Dataset T) {
-        Tuple3<Set<String>, BasicPattern, InfModel> queryStructure = parseSPARQL(query);
+    public RewritingResult rewriteToUnionOfConjunctiveQueries(String query, Dataset T) {
+        RewritingResult res = new RewritingResult();
 
+        Tuple3<Set<String>, BasicPattern, InfModel> queryStructure = parseSPARQL(query);
 
         BasicPattern PHI_p = queryStructure._2;
         populateOptimizedStructures(T,PHI_p);
@@ -416,6 +418,7 @@ public class QueryRewritingRDFS {
         Graph<String, RelationshipEdge> conceptsGraph = new SimpleDirectedGraph<>(RelationshipEdge.class);
         PHI_p.getList().forEach(t -> {
             // Add only concepts so its easier to populate later the list of concepts
+            // TODO J: this should add integrated but also non-integrated classes
             if ( RDFUtil.runAskQuery("ASK WHERE { GRAPH ?g {" +
                     "{ <"+t.getSubject().getURI()+"> <"+Namespaces.rdf.val()+"type> <"+Namespaces.rdfs.val()+"Class> . <"+t.getObject().getURI()+"> <"+Namespaces.rdf.val()+"type> <"+Namespaces.rdfs.val()+"Class> .  } " +
                     "UNION" +
@@ -431,6 +434,13 @@ public class QueryRewritingRDFS {
                         new RelationshipEdge(t.getPredicate().getURI()) /*UUID.randomUUID().toString()*/);
 
             }
+//            else if ( RDFUtil.runAskQuery("ASK WHERE { GRAPH ?g {" +
+//                    "{ <"+t.getSubject().getURI()+"> <"+Namespaces.rdf.val()+"type> <"+Namespaces.rdfs.val()+"Class> . " +
+//                    " <"+t.getObject().getURI()+"> <"+Namespaces.rdf.val()+"type> <"+Namespaces.rdfs.val()+"Class> ." +
+//                    " <"+t.getSubject().getURI()+"> ?p <"+t.getObject().getURI()+">  } " +
+//                    "} }",T) && !t.getObject().getURI().equals(Namespaces.sc.val()+"identifier")  ) {
+//                System.out.println("entra");
+//            }
 
             //if (!t.getPredicate().getURI().equals(GlobalGraph.HAS_FEATURE.val()) && !t.getObject().getURI().equals(Namespaces.sc.val()+"identifier")) {
             //    conceptsGraph.addVertex(t.getSubject().getURI());
@@ -439,6 +449,13 @@ public class QueryRewritingRDFS {
             //            new RelationshipEdge(t.getPredicate().getURI()) /*UUID.randomUUID().toString()*/);
             //}
         });
+
+//        conceptsGraph.addVertex("http://www.essi.upc.edu/DTIM/NextiaDI/DataSource/Schema/bac08e07e9794e5495e19ee9287816e0/Object_1");
+//        conceptsGraph.addVertex("http://www.essi.upc.edu/DTIM/NextiaDI/DataSource/Schema/bac08e07e9794e5495e19ee9287816e0/Object_4");
+//        conceptsGraph.addEdge( "http://www.essi.upc.edu/DTIM/NextiaDI/DataSource/Schema/bac08e07e9794e5495e19ee9287816e0/Object_1", "http://www.essi.upc.edu/DTIM/NextiaDI/DataSource/Schema/bac08e07e9794e5495e19ee9287816e0/Object_4",
+//                new RelationshipEdge("http://www.essi.upc.edu/DTIM/NextiaDI/DataSource/Schema/bac08e07e9794e5495e19ee9287816e0/dateRange") /*UUID.randomUUID().toString()*/);
+
+
         // This is required when only one concept is queried, where all edges are hasFeature
         // Javier: I think there will be more bugs, try to validate with more examples.
         if (conceptsGraph.vertexSet().isEmpty()) {
@@ -446,8 +463,9 @@ public class QueryRewritingRDFS {
             for(Triple t : PHI_p.getList()){
                 if(t.getPredicate().getURI().equals(RDFS.domain.getURI()) ) {
                     conceptsGraph.addVertex(t.getObject().getURI());
-                    System.out.println("****" + t.getObject().getURI());
-                    break;
+                    System.out.println("****--" + t.getObject().getURI());
+//                    not sure if the break is wrong?
+//                    break;
                 }
             }
             if (conceptsGraph.vertexSet().isEmpty()) {
@@ -554,7 +572,10 @@ public class QueryRewritingRDFS {
                 .filter(cq -> cq.getProjections().size() >= projectionOrder.size())
                 .collect(Collectors.toSet());
 
-        return out;
+        res.setCQs(out);
+        res.setFeaturesPerAttribute(Maps.newHashMap(featuresPerAttribute));
+        res.setProjectionOrder(Maps.newHashMap(projectionOrder));
+        return res;
 
     }
 

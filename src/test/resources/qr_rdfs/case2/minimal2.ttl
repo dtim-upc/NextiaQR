@@ -1,0 +1,470 @@
+@prefix json:             <https://www.essi.upc.edu/dtim/json-metamodel#> .
+@prefix nextiaDataSource: <http://www.essi.upc.edu/DTIM/NextiaDI/DataSource/> .
+@prefix nextiaSchema:     <http://www.essi.upc.edu/DTIM/NextiaDI/DataSource/Schema/38530e7457fd4c27ba2fe6ba7429377f/> .
+@prefix rdf:              <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:             <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd:              <http://www.w3.org/2001/XMLSchema#> .
+
+nextiaSchema:Object_5
+        rdf:type    rdfs:Class ;
+        rdfs:label  "death" .
+
+<http://www.essi.upc.edu/DTIM/NextiaDI/DataSource/Schema/bac08e07e9794e5495e19ee9287816e0/startYear>
+        rdf:type     rdf:Property ;
+        rdfs:domain  <http://www.essi.upc.edu/DTIM/NextiaDI/DataSource/Schema/bac08e07e9794e5495e19ee9287816e0/Object_4> ;
+        rdfs:label   "startYear" ;
+        rdfs:range   xsd:int .
+
+<http://www.essi.upc.edu/DTIM/NextiaDI/DataSource/Schema/bac08e07e9794e5495e19ee9287816e0/dateText>
+        rdf:type     rdf:Property ;
+        rdfs:domain  <http://www.essi.upc.edu/DTIM/NextiaDI/DataSource/Schema/bac08e07e9794e5495e19ee9287816e0/Object_1> ;
+        rdfs:label   "dateText" ;
+        rdfs:range   xsd:string .
+
+<http://www.essi.upc.edu/DTIM/NextiaDI/artist>
+        rdf:type  <http://www.essi.upc.edu/DTIM/NextiaDI/IntegratedClass> .
+
+nextiaSchema:gender  rdfs:subClassOf  <http://schema.org/identifier> .
+
+<http://www.essi.upc.edu/DTIM/NextiaDI/DataSource/Schema/bac08e07e9794e5495e19ee9287816e0/units>
+        rdf:type     rdf:Property ;
+        rdfs:domain  <http://www.essi.upc.edu/DTIM/NextiaDI/DataSource/Schema/bac08e07e9794e5495e19ee9287816e0/Object_1> ;
+        rdfs:label   "units" ;
+        rdfs:range   xsd:string .
+
+nextiaSchema:date  rdfs:subClassOf  <http://schema.org/identifier> .
+
+<http://www.essi.upc.edu/DTIM/NextiaDI/DataSource/Schema/bac08e07e9794e5495e19ee9287816e0/creditLine>
+        rdf:type     rdf:Property ;
+        rdfs:domain  <http://www.essi.upc.edu/DTIM/NextiaDI/DataSource/Schema/bac08e07e9794e5495e19ee9287816e0/Object_1> ;
+        rdfs:label   "creditLine" ;
+        rdfs:range   xsd:string .
+
+<http://www.essi.upc.edu/DTIM/NextiaDI/DataSource/Schema/bac08e07e9794e5495e19ee9287816e0/dateRange>
+        rdf:type     rdf:Property ;
+        rdfs:domain  <http://www.essi.upc.edu/DTIM/NextiaDI/DataSource/Schema/bac08e07e9794e5495e19ee9287816e0/Object_1> ;
+        rdfs:label   "has dateRange" ;
+        rdfs:range   <http://www.essi.upc.edu/DTIM/NextiaDI/DataSource/Schema/bac08e07e9794e5495e19ee9287816e0/Object_4> .
+
+nextiaSchema:activePlaceCount
+        rdf:type     rdf:Property ;
+        rdfs:domain  <http://www.essi.upc.edu/DTIM/NextiaDI/artist> ;
+        rdfs:label   "activePlaceCount" ;
+        rdfs:range   xsd:int .
+
+<http://www.essi.upc.edu/DTIM/NextiaDI/DataSource/Schema/bac08e07e9794e5495e19ee9287816e0/dimensions>
+        rdf:type     rdf:Property ;
+        rdfs:domain  <http://www.essi.upc.edu/DTIM/NextiaDI/DataSource/Schema/bac08e07e9794e5495e19ee9287816e0/Object_1> ;
+        rdfs:label   "dimensions" ;
+        rdfs:range   xsd:string .
+
+<http://www.essi.upc.edu/DTIM/NextiaDI/DataSource/Schema/bac08e07e9794e5495e19ee9287816e0/contributors>
+        rdf:type     rdfs:ContainerMembershipProperty , rdf:Property ;
+        rdfs:domain  <http://www.essi.upc.edu/DTIM/NextiaDI/DataSource/Schema/bac08e07e9794e5495e19ee9287816e0/Object_1> ;
+        rdfs:label   "has contributors" ;
+        rdfs:range   <http://www.essi.upc.edu/DTIM/NextiaDI/artist> .
+
+nextiaSchema:name  rdf:type  rdf:Property ;
+        rdfs:domain  nextiaSchema:Object_3 ;
+        rdfs:label   "name" ;
+        rdfs:range   xsd:string .
+
+nextiaSchema:era  rdf:type  rdf:Property ;
+        rdfs:domain  nextiaSchema:Object_8 ;
+        rdfs:label   "has era" ;
+        rdfs:range   nextiaSchema:Object_9 .
+
+nextiaSchema:placeType
+        rdf:type     rdf:Property ;
+        rdfs:domain  nextiaSchema:Object_3 ;
+        rdfs:label   "placeType" ;
+        rdfs:range   xsd:string .
+
+<http://www.essi.upc.edu/DTIM/NextiaDI/date_date>
+        rdf:type     <http://www.essi.upc.edu/DTIM/NextiaDI/IntegratedDatatypeProperty> ;
+        rdfs:domain  <http://www.essi.upc.edu/DTIM/NextiaDI/artist> ;
+        rdfs:range   xsd:string .
+
+nextiaSchema:id  rdf:type  rdf:Property ;
+        rdfs:domain  <http://www.essi.upc.edu/DTIM/NextiaDI/artist> ;
+        rdfs:label   "id" ;
+        rdfs:range   xsd:int .
+
+nextiaSchema:mda  rdfs:subClassOf  <http://schema.org/identifier> .
+
+nextiaSchema:Object_4
+        rdf:type    rdfs:Class ;
+        rdfs:label  "time" .
+
+<http://www.essi.upc.edu/DTIM/NextiaDI/DataSource/Schema/bac08e07e9794e5495e19ee9287816e0/id>
+        rdf:type     rdf:Property ;
+        rdfs:domain  <http://www.essi.upc.edu/DTIM/NextiaDI/artist> ;
+        rdfs:label   "id" ;
+        rdfs:range   xsd:int .
+
+<http://www.essi.upc.edu/DTIM/NextiaDI/DataSource/Schema/bac08e07e9794e5495e19ee9287816e0/Object_2>
+        rdf:type    rdfs:Class ;
+        rdfs:label  "catalogueGroup" .
+
+nextiaSchema:name4  rdf:type  rdf:Property ;
+        rdfs:domain  nextiaSchema:Object_8 ;
+        rdfs:label   "name4" ;
+        rdfs:range   xsd:string .
+
+<http://www.essi.upc.edu/DTIM/NextiaDI/DataSource/Schema/bac08e07e9794e5495e19ee9287816e0/title>
+        rdf:type     rdf:Property ;
+        rdfs:domain  <http://www.essi.upc.edu/DTIM/NextiaDI/DataSource/Schema/bac08e07e9794e5495e19ee9287816e0/Object_1> ;
+        rdfs:label   "title" ;
+        rdfs:range   xsd:string .
+
+nextiaSchema:death  rdf:type  rdf:Property ;
+        rdfs:domain  <http://www.essi.upc.edu/DTIM/NextiaDI/artist> ;
+        rdfs:label   "has death" ;
+        rdfs:range   nextiaSchema:Object_5 .
+
+nextiaSchema:movements
+        rdf:type     rdfs:ContainerMembershipProperty , rdf:Property ;
+        rdfs:domain  <http://www.essi.upc.edu/DTIM/NextiaDI/artist> ;
+        rdfs:label   "has movements" ;
+        rdfs:range   nextiaSchema:Object_8 .
+
+<http://www.essi.upc.edu/DTIM/NextiaDI/DataSource/Schema/bac08e07e9794e5495e19ee9287816e0/acquisitionYear>
+        rdf:type     rdf:Property ;
+        rdfs:domain  <http://www.essi.upc.edu/DTIM/NextiaDI/DataSource/Schema/bac08e07e9794e5495e19ee9287816e0/Object_1> ;
+        rdfs:label   "acquisitionYear" ;
+        rdfs:range   xsd:int .
+
+nextiaSchema:placeName2
+        rdf:type     rdf:Property ;
+        rdfs:domain  nextiaSchema:Object_6 ;
+        rdfs:label   "placeName2" ;
+        rdfs:range   xsd:string .
+
+nextiaSchema:birth  rdf:type  rdf:Property ;
+        rdfs:domain  <http://www.essi.upc.edu/DTIM/NextiaDI/artist> ;
+        rdfs:label   "has birth" ;
+        rdfs:range   nextiaSchema:Object_2 .
+
+nextiaSchema:startYear2
+        rdf:type     rdf:Property ;
+        rdfs:domain  nextiaSchema:Object_7 ;
+        rdfs:label   "startYear2" ;
+        rdfs:range   xsd:int .
+
+<http://www.essi.upc.edu/DTIM/NextiaDI/GlobalSchema/e3ddf3d7b01140e0b3f3ae9abead5420>
+        <http://www.essi.upc.edu/DTIM/NextiaDI/isMinimalOf>
+                <http://www.essi.upc.edu/DTIM/NextiaDI/GlobalSchemaComplete/e3ddf3d7b01140e0b3f3ae9abead5420> .
+
+nextiaSchema:Object_9
+        rdf:type    rdfs:Class ;
+        rdfs:label  "era" .
+
+<http://www.essi.upc.edu/DTIM/NextiaDI/DataSource/Schema/bac08e07e9794e5495e19ee9287816e0/subjectCount>
+        rdf:type     rdf:Property ;
+        rdfs:domain  <http://www.essi.upc.edu/DTIM/NextiaDI/DataSource/Schema/bac08e07e9794e5495e19ee9287816e0/Object_1> ;
+        rdfs:label   "subjectCount" ;
+        rdfs:range   xsd:int .
+
+<http://www.essi.upc.edu/DTIM/NextiaDI/DataSource/Schema/bac08e07e9794e5495e19ee9287816e0/role>
+        rdf:type     rdf:Property ;
+        rdfs:domain  <http://www.essi.upc.edu/DTIM/NextiaDI/artist> ;
+        rdfs:label   "role" ;
+        rdfs:range   xsd:string .
+
+<http://www.essi.upc.edu/DTIM/NextiaDI/DataSource/Schema/bac08e07e9794e5495e19ee9287816e0/endYear>
+        rdf:type     rdf:Property ;
+        rdfs:domain  <http://www.essi.upc.edu/DTIM/NextiaDI/DataSource/Schema/bac08e07e9794e5495e19ee9287816e0/Object_4> ;
+        rdfs:label   "endYear" ;
+        rdfs:range   xsd:int .
+
+<http://www.essi.upc.edu/DTIM/NextiaDI/DataSource/Schema/bac08e07e9794e5495e19ee9287816e0/all_artists>
+        rdf:type     rdf:Property ;
+        rdfs:domain  <http://www.essi.upc.edu/DTIM/NextiaDI/DataSource/Schema/bac08e07e9794e5495e19ee9287816e0/Object_1> ;
+        rdfs:label   "all_artists" ;
+        rdfs:range   xsd:string .
+
+nextiaSchema:Object_3
+        rdf:type    rdfs:Class ;
+        rdfs:label  "place" .
+
+<http://www.essi.upc.edu/DTIM/NextiaDI/DataSource/Schema/bac08e07e9794e5495e19ee9287816e0/Object_1>
+        rdf:type    rdfs:Class ;
+        rdfs:label  "artworks" .
+
+nextiaSchema:name3  rdf:type  rdf:Property ;
+        rdfs:domain  nextiaSchema:Object_9 ;
+        rdfs:label   "name3" ;
+        rdfs:range   xsd:string .
+
+<http://www.essi.upc.edu/DTIM/NextiaDI/DataSource/Schema/bac08e07e9794e5495e19ee9287816e0/mda>
+        rdfs:subClassOf  <http://schema.org/identifier> .
+
+<http://www.essi.upc.edu/DTIM/NextiaDI/DataSource/Schema/bac08e07e9794e5495e19ee9287816e0/thumbnailUrl>
+        rdf:type     rdf:Property ;
+        rdfs:domain  <http://www.essi.upc.edu/DTIM/NextiaDI/DataSource/Schema/bac08e07e9794e5495e19ee9287816e0/Object_1> ;
+        rdfs:label   "thumbnailUrl" ;
+        rdfs:range   xsd:string .
+
+nextiaSchema:place2  rdf:type  rdf:Property ;
+        rdfs:domain  nextiaSchema:Object_5 ;
+        rdfs:label   "has place2" ;
+        rdfs:range   nextiaSchema:Object_6 .
+
+nextiaSchema:id3  rdf:type  rdf:Property ;
+        rdfs:domain  nextiaSchema:Object_8 ;
+        rdfs:label   "id3" ;
+        rdfs:range   xsd:int .
+
+nextiaSchema:time  rdf:type  rdf:Property ;
+        rdfs:domain  nextiaSchema:Object_2 ;
+        rdfs:label   "has time" ;
+        rdfs:range   nextiaSchema:Object_4 .
+
+nextiaSchema:Object_8
+        rdf:type    rdfs:Class ;
+        rdfs:label  "Array_1" .
+
+nextiaDataSource:bac08e07e9794e5495e19ee9287816e0
+        rdf:type                       <http://www.essi.upc.edu/DTIM/NextiaDI/DataSource> ;
+        rdfs:label                     "artworks" ;
+        nextiaDataSource:description   "" ;
+        nextiaDataSource:format        "JSON" ;
+        nextiaDataSource:graphicalGraph
+                "{\"nodes\":[{\"id\":\"Class2\",\"iri\":\"http://www.essi.upc.edu/DTIM/NextiaDI/DataSource/Schema/bac08e07e9794e5495e19ee9287816e0/inscription\",\"iriType\":\"http://www.w3.org/1999/02/22-rdf-syntax-ns#Property\",\"shortType\":\"rdf:Property\",\"type\":\"datatype\",\"label\":\"inscription\",\"domain\":\"http://www.essi.upc.edu/DTIM/NextiaDI/DataSource/Schema/bac08e07e9794e5495e19ee9287816e0/Object_1\",\"range\":\"http://www.w3.org/2001/XMLSchema#string\",\"isIntegrated\":false,\"linkId\":\"Link1\"},{\"id\":\"Class3\",\"iri\":\"http://www.essi.upc.edu/DTIM/NextiaDI/DataSource/Schema/bac08e07e9794e5495e19ee9287816e0/gender\",\"iriType\":\"http://www.w3.org/1999/02/22-rdf-syntax-ns#Property\",\"shortType\":\"rdf:Property\",\"type\":\"datatype\",\"label\":\"gender\",\"domain\":\"http://www.essi.upc.edu/DTIM/NextiaDI/DataSource/Schema/bac08e07e9794e5495e19ee9287816e0/Object_3\",\"range\":\"http://www.w3.org/2001/XMLSchema#string\",\"isIntegrated\":false,\"linkId\":\"Link2\"},{\"id\":\"Class4\",\"iri\":\"http://www.essi.upc.edu/DTIM/NextiaDI/DataSource/Schema/bac08e07e9794e5495e19ee9287816e0/thumbnailUrl\",\"iriType\":\"http://www.w3.org/1999/02/22-rdf-syntax-ns#Property\",\"shortType\":\"rdf:Property\",\"type\":\"datatype\",\"label\":\"thumbnailUrl\",\"domain\":\"http://www.essi.upc.edu/DTIM/NextiaDI/DataSource/Schema/bac08e07e9794e5495e19ee9287816e0/Object_1\",\"range\":\"http://www.w3.org/2001/XMLSchema#string\",\"isIntegrated\":false,\"linkId\":\"Link3\"},{\"id\":\"Class5\",\"iri\":\"http://www.essi.upc.edu/DTIM/NextiaDI/DataSource/Schema/bac08e07e9794e5495e19ee9287816e0/endYear\",\"iriType\":\"http://www.w3.org/1999/02/22-rdf-syntax-ns#Property\",\"shortType\":\"rdf:Property\",\"type\":\"datatype\",\"label\":\"endYear\",\"domain\":\"http://www.essi.upc.edu/DTIM/NextiaDI/DataSource/Schema/bac08e07e9794e5495e19ee9287816e0/Object_4\",\"range\":\"http://www.w3.org/2001/XMLSchema#int\",\"isIntegrated\":false,\"linkId\":\"Link4\"},{\"id\":\"Class6\",\"iri\":\"http://www.essi.upc.edu/DTIM/NextiaDI/DataSource/Schema/bac08e07e9794e5495e19ee9287816e0/date\",\"iriType\":\"http://www.w3.org/1999/02/22-rdf-syntax-ns#Property\",\"shortType\":\"rdf:Property\",\"type\":\"datatype\",\"label\":\"date\",\"domain\":\"http://www.essi.upc.edu/DTIM/NextiaDI/DataSource/Schema/bac08e07e9794e5495e19ee9287816e0/Object_3\",\"range\":\"http://www.w3.org/2001/XMLSchema#string\",\"isIntegrated\":false,\"linkId\":\"Link5\"},{\"id\":\"Class7\",\"iri\":\"http://www.essi.upc.edu/DTIM/NextiaDI/DataSource/Schema/bac08e07e9794e5495e19ee9287816e0/movementCount\",\"iriType\":\"http://www.w3.org/1999/02/22-rdf-syntax-ns#Property\",\"shortType\":\"rdf:Property\",\"type\":\"datatype\",\"label\":\"movementCount\",\"domain\":\"http://www.essi.upc.edu/DTIM/NextiaDI/DataSource/Schema/bac08e07e9794e5495e19ee9287816e0/Object_1\",\"range\":\"http://www.w3.org/2001/XMLSchema#int\",\"isIntegrated\":false,\"linkId\":\"Link6\"},{\"id\":\"Class8\",\"iri\":\"http://www.essi.upc.edu/DTIM/NextiaDI/DataSource/Schema/bac08e07e9794e5495e19ee9287816e0/url\",\"iriType\":\"http://www.w3.org/1999/02/22-rdf-syntax-ns#Property\",\"shortType\":\"rdf:Property\",\"type\":\"datatype\",\"label\":\"url\",\"domain\":\"http://www.essi.upc.edu/DTIM/NextiaDI/DataSource/Schema/bac08e07e9794e5495e19ee9287816e0/Object_1\",\"range\":\"http://www.w3.org/2001/XMLSchema#string\",\"isIntegrated\":false,\"linkId\":\"Link7\"},{\"id\":\"Class9\",\"iri\":\"http://www.essi.upc.edu/DTIM/NextiaDI/DataSource/Schema/bac08e07e9794e5495e19ee9287816e0/units\",\"iriType\":\"http://www.w3.org/1999/02/22-rdf-syntax-ns#Property\",\"shortType\":\"rdf:Property\",\"type\":\"datatype\",\"label\":\"units\",\"domain\":\"http://www.essi.upc.edu/DTIM/NextiaDI/DataSource/Schema/bac08e07e9794e5495e19ee9287816e0/Object_1\",\"range\":\"http://www.w3.org/2001/XMLSchema#string\",\"isIntegrated\":false,\"linkId\":\"Link8\"},{\"id\":\"Class10\",\"iri\":\"http://www.essi.upc.edu/DTIM/NextiaDI/DataSource/Schema/bac08e07e9794e5495e19ee9287816e0/text\",\"iriType\":\"http://www.w3.org/1999/02/22-rdf-syntax-ns#Property\",\"shortType\":\"rdf:Property\",\"type\":\"datatype\",\"label\":\"text\",\"domain\":\"http://www.essi.upc.edu/DTIM/NextiaDI/DataSource/Schema/bac08e07e9794e5495e19ee9287816e0/Object_4\",\"range\":\"http://www.w3.org/2001/XMLSchema#string\",\"isIntegrated\":false,\"linkId\":\"Link9\"},{\"id\":\"Class11\",\"iri\":\"http://www.essi.upc.edu/DTIM/NextiaDI/DataSource/Schema/bac08e07e9794e5495e19ee9287816e0/height\",\"iriType\":\"http://www.w3.org/1999/02/22-rdf-syntax-ns#Property\",\"shortType\":\"rdf:Property\",\"type\":\"datatype\",\"label\":\"height\",\"domain\":\"http://www.essi.upc.edu/DTIM/NextiaDI/DataSource/Schema/bac08e07e9794e5495e19ee9287816e0/Object_1\",\"range\":\"http://www.w3.org/2001/XMLSchema#string\",\"isIntegrated\":false,\"linkId\":\"Link10\"},{\"id\":\"Class12\",\"iri\":\"http://www.essi.upc.edu/DTIM/NextiaDI/DataSource/Schema/bac08e07e9794e5495e19ee9287816e0/contributorCount\",\"iriType\":\"http://www.w3.org/1999/02/22-rdf-syntax-ns#Property\",\"shortType\":\"rdf:Property\",\"type\":\"datatype\",\"label\":\"contributorCount\",\"domain\":\"http://www.essi.upc.edu/DTIM/NextiaDI/DataSource/Schema/bac08e07e9794e5495e19ee9287816e0/Object_1\",\"range\":\"http://www.w3.org/2001/XMLSchema#int\",\"isIntegrated\":false,\"linkId\":\"Link11\"},{\"id\":\"Class13\",\"iri\":\"http://www.essi.upc.edu/DTIM/NextiaDI/DataSource/Schema/bac08e07e9794e5495e19ee9287816e0/acquisitionYear\",\"iriType\":\"http://www.w3.org/1999/02/22-rdf-syntax-ns#Property\",\"shortType\":\"rdf:Property\",\"type\":\"datatype\",\"label\":\"acquisitionYear\",\"domain\":\"http://www.essi.upc.edu/DTIM/NextiaDI/DataSource/Schema/bac08e07e9794e5495e19ee9287816e0/Object_1\",\"range\":\"http://www.w3.org/2001/XMLSchema#int\",\"isIntegrated\":false,\"linkId\":\"Link12\"},{\"id\":\"Class14\",\"iri\":\"http://www.essi.upc.edu/DTIM/NextiaDI/DataSource/Schema/bac08e07e9794e5495e19ee9287816e0/Object_3\",\"iriType\":\"http://www.w3.org/2000/01/rdf-schema#Class\",\"shortType\":\"rdfs:Class\",\"type\":\"class\",\"label\":\"Array_1\",\"domain\":\"\",\"range\":\"\",\"isIntegrated\":false},{\"id\":\"Class15\",\"iri\":\"http://www.essi.upc.edu/DTIM/NextiaDI/DataSource/Schema/bac08e07e9794e5495e19ee9287816e0/Object_1\",\"iriType\":\"http://www.w3.org/2000/01/rdf-schema#Class\",\"shortType\":\"rdfs:Class\",\"type\":\"class\",\"label\":\"artworks\",\"domain\":\"\",\"range\":\"\",\"isIntegrated\":false},{\"id\":\"Class16\",\"iri\":\"http://www.essi.upc.edu/DTIM/NextiaDI/DataSource/Schema/bac08e07e9794e5495e19ee9287816e0/acno\",\"iriType\":\"http://www.w3.org/1999/02/22-rdf-syntax-ns#Property\",\"shortType\":\"rdf:Property\",\"type\":\"datatype\",\"label\":\"acno\",\"domain\":\"http://www.essi.upc.edu/DTIM/NextiaDI/DataSource/Schema/bac08e07e9794e5495e19ee9287816e0/Object_1\",\"range\":\"http://www.w3.org/2001/XMLSchema#string\",\"isIntegrated\":false,\"linkId\":\"Link13\"},{\"id\":\"Class17\",\"iri\":\"http://www.essi.upc.edu/DTIM/NextiaDI/DataSource/Schema/bac08e07e9794e5495e19ee9287816e0/dateRange\",\"iriType\":\"http://www.w3.org/1999/02/22-rdf-syntax-ns#Property\",\"shortType\":\"rdf:Property\",\"type\":\"object\",\"label\":\"has dateRange\",\"domain\":\"http://www.essi.upc.edu/DTIM/NextiaDI/DataSource/Schema/bac08e07e9794e5495e19ee9287816e0/Object_1\",\"range\":\"http://www.essi.upc.edu/DTIM/NextiaDI/DataSource/Schema/bac08e07e9794e5495e19ee9287816e0/Object_4\",\"isIntegrated\":false,\"linkId\":\"Link14\"},{\"id\":\"Class18\",\"iri\":\"http://www.essi.upc.edu/DTIM/NextiaDI/DataSource/Schema/bac08e07e9794e5495e19ee9287816e0/dateText\",\"iriType\":\"http://www.w3.org/1999/02/22-rdf-syntax-ns#Property\",\"shortType\":\"rdf:Property\",\"type\":\"datatype\",\"label\":\"dateText\",\"domain\":\"http://www.essi.upc.edu/DTIM/NextiaDI/DataSource/Schema/bac08e07e9794e5495e19ee9287816e0/Object_1\",\"range\":\"http://www.w3.org/2001/XMLSchema#string\",\"isIntegrated\":false,\"linkId\":\"Link15\"},{\"id\":\"Class19\",\"iri\":\"http://www.essi.upc.edu/DTIM/NextiaDI/DataSource/Schema/bac08e07e9794e5495e19ee9287816e0/subjectCount\",\"iriType\":\"http://www.w3.org/1999/02/22-rdf-syntax-ns#Property\",\"shortType\":\"rdf:Property\",\"type\":\"datatype\",\"label\":\"subjectCount\",\"domain\":\"http://www.essi.upc.edu/DTIM/NextiaDI/DataSource/Schema/bac08e07e9794e5495e19ee9287816e0/Object_1\",\"range\":\"http://www.w3.org/2001/XMLSchema#int\",\"isIntegrated\":false,\"linkId\":\"Link16\"},{\"id\":\"Class20\",\"iri\":\"http://www.essi.upc.edu/DTIM/NextiaDI/DataSource/Schema/bac08e07e9794e5495e19ee9287816e0/startLetter\",\"iriType\":\"http://www.w3.org/1999/02/22-rdf-syntax-ns#Property\",\"shortType\":\"rdf:Property\",\"type\":\"datatype\",\"label\":\"startLetter\",\"domain\":\"http://www.essi.upc.edu/DTIM/NextiaDI/DataSource/Schema/bac08e07e9794e5495e19ee9287816e0/Object_3\",\"range\":\"http://www.w3.org/2001/XMLSchema#string\",\"isIntegrated\":false,\"linkId\":\"Link17\"},{\"id\":\"Class21\",\"iri\":\"http://www.essi.upc.edu/DTIM/NextiaDI/DataSource/Schema/bac08e07e9794e5495e19ee9287816e0/fc\",\"iriType\":\"http://www.w3.org/1999/02/22-rdf-syntax-ns#Property\",\"shortType\":\"rdf:Property\",\"type\":\"datatype\",\"label\":\"fc\",\"domain\":\"http://www.essi.upc.edu/DTIM/NextiaDI/DataSource/Schema/bac08e07e9794e5495e19ee9287816e0/Object_3\",\"range\":\"http://www.w3.org/2001/XMLSchema#string\",\"isIntegrated\":false,\"linkId\":\"Link18\"},{\"id\":\"Class22\",\"iri\":\"http://www.essi.upc.edu/DTIM/NextiaDI/DataSource/Schema/bac08e07e9794e5495e19ee9287816e0/medium\",\"iriType\":\"http://www.w3.org/1999/02/22-rdf-syntax-ns#Property\",\"shortType\":\"rdf:Property\",\"type\":\"datatype\",\"label\":\"medium\",\"domain\":\"http://www.essi.upc.edu/DTIM/NextiaDI/DataSource/Schema/bac08e07e9794e5495e19ee9287816e0/Object_1\",\"range\":\"http://www.w3.org/2001/XMLSchema#string\",\"isIntegrated\":false,\"linkId\":\"Link19\"},{\"id\":\"Class23\",\"iri\":\"http://www.essi.upc.edu/DTIM/NextiaDI/DataSource/Schema/bac08e07e9794e5495e19ee9287816e0/id2\",\"iriType\":\"http://www.w3.org/1999/02/22-rdf-syntax-ns#Property\",\"shortType\":\"rdf:Property\",\"type\":\"datatype\",\"label\":\"id2\",\"domain\":\"http://www.essi.upc.edu/DTIM/NextiaDI/DataSource/Schema/bac08e07e9794e5495e19ee9287816e0/Object_1\",\"range\":\"http://www.w3.org/2001/XMLSchema#int\",\"isIntegrated\":false,\"linkId\":\"Link20\"},{\"id\":\"Class24\",\"iri\":\"http://www.essi.upc.edu/DTIM/NextiaDI/DataSource/Schema/bac08e07e9794e5495e19ee9287816e0/contributors\",\"iriType\":\"http://www.w3.org/1999/02/22-rdf-syntax-ns#Property\",\"shortType\":\"rdf:Property\",\"type\":\"object\",\"label\":\"has contributors\",\"domain\":\"http://www.essi.upc.edu/DTIM/NextiaDI/DataSource/Schema/bac08e07e9794e5495e19ee9287816e0/Object_1\",\"range\":\"http://www.essi.upc.edu/DTIM/NextiaDI/DataSource/Schema/bac08e07e9794e5495e19ee9287816e0/Object_3\",\"isIntegrated\":false,\"linkId\":\"Link21\"},{\"id\":\"Class25\",\"iri\":\"http://www.essi.upc.edu/DTIM/NextiaDI/DataSource/Schema/bac08e07e9794e5495e19ee9287816e0/birthYear\",\"iriType\":\"http://www.w3.org/1999/02/22-rdf-syntax-ns#Property\",\"shortType\":\"rdf:Property\",\"type\":\"datatype\",\"label\":\"birthYear\",\"domain\":\"http://www.essi.upc.edu/DTIM/NextiaDI/DataSource/Schema/bac08e07e9794e5495e19ee9287816e0/Object_3\",\"range\":\"http://www.w3.org/2001/XMLSchema#int\",\"isIntegrated\":false,\"linkId\":\"Link22\"},{\"id\":\"Class26\",\"iri\":\"http://www.essi.upc.edu/DTIM/NextiaDI/DataSource/Schema/bac08e07e9794e5495e19ee9287816e0/dimensions\",\"iriType\":\"http://www.w3.org/1999/02/22-rdf-syntax-ns#Property\",\"shortType\":\"rdf:Property\",\"type\":\"datatype\",\"label\":\"dimensions\",\"domain\":\"http://www.essi.upc.edu/DTIM/NextiaDI/DataSource/Schema/bac08e07e9794e5495e19ee9287816e0/Object_1\",\"range\":\"http://www.w3.org/2001/XMLSchema#string\",\"isIntegrated\":false,\"linkId\":\"Link23\"},{\"id\":\"Class27\",\"iri\":\"http://www.essi.upc.edu/DTIM/NextiaDI/DataSource/Schema/bac08e07e9794e5495e19ee9287816e0/width\",\"iriType\":\"http://www.w3.org/1999/02/22-rdf-syntax-ns#Property\",\"shortType\":\"rdf:Property\",\"type\":\"datatype\",\"label\":\"width\",\"domain\":\"http://www.essi.upc.edu/DTIM/NextiaDI/DataSource/Schema/bac08e07e9794e5495e19ee9287816e0/Object_1\",\"range\":\"http://www.w3.org/2001/XMLSchema#string\",\"isIntegrated\":false,\"linkId\":\"Link24\"},{\"id\":\"Class28\",\"iri\":\"http://www.essi.upc.edu/DTIM/NextiaDI/DataSource/Schema/bac08e07e9794e5495e19ee9287816e0/depth\",\"iriType\":\"http://www.w3.org/1999/02/22-rdf-syntax-ns#Property\",\"shortType\":\"rdf:Property\",\"type\":\"datatype\",\"label\":\"depth\",\"domain\":\"http://www.essi.upc.edu/DTIM/NextiaDI/DataSource/Schema/bac08e07e9794e5495e19ee9287816e0/Object_1\",\"range\":\"http://www.w3.org/2001/XMLSchema#string\",\"isIntegrated\":false,\"linkId\":\"Link25\"},{\"id\":\"Class29\",\"iri\":\"http://www.essi.upc.edu/DTIM/NextiaDI/DataSource/Schema/bac08e07e9794e5495e19ee9287816e0/role\",\"iriType\":\"http://www.w3.org/1999/02/22-rdf-syntax-ns#Property\",\"shortType\":\"rdf:Property\",\"type\":\"datatype\",\"label\":\"role\",\"domain\":\"http://www.essi.upc.edu/DTIM/NextiaDI/DataSource/Schema/bac08e07e9794e5495e19ee9287816e0/Object_3\",\"range\":\"http://www.w3.org/2001/XMLSchema#string\",\"isIntegrated\":false,\"linkId\":\"Link26\"},{\"id\":\"Class30\",\"iri\":\"http://www.essi.upc.edu/DTIM/NextiaDI/DataSource/Schema/bac08e07e9794e5495e19ee9287816e0/catalogueGroup\",\"iriType\":\"http://www.w3.org/1999/02/22-rdf-syntax-ns#Property\",\"shortType\":\"rdf:Property\",\"type\":\"object\",\"label\":\"has catalogueGroup\",\"domain\":\"http://www.essi.upc.edu/DTIM/NextiaDI/DataSource/Schema/bac08e07e9794e5495e19ee9287816e0/Object_1\",\"range\":\"http://www.essi.upc.edu/DTIM/NextiaDI/DataSource/Schema/bac08e07e9794e5495e19ee9287816e0/Object_2\",\"isIntegrated\":false,\"linkId\":\"Link27\"},{\"id\":\"Class31\",\"iri\":\"http://www.essi.upc.edu/DTIM/NextiaDI/DataSource/Schema/bac08e07e9794e5495e19ee9287816e0/creditLine\",\"iriType\":\"http://www.w3.org/1999/02/22-rdf-syntax-ns#Property\",\"shortType\":\"rdf:Property\",\"type\":\"datatype\",\"label\":\"creditLine\",\"domain\":\"http://www.essi.upc.edu/DTIM/NextiaDI/DataSource/Schema/bac08e07e9794e5495e19ee9287816e0/Object_1\",\"range\":\"http://www.w3.org/2001/XMLSchema#string\",\"isIntegrated\":false,\"linkId\":\"Link28\"},{\"id\":\"Class32\",\"iri\":\"http://www.essi.upc.edu/DTIM/NextiaDI/DataSource/Schema/bac08e07e9794e5495e19ee9287816e0/title\",\"iriType\":\"http://www.w3.org/1999/02/22-rdf-syntax-ns#Property\",\"shortType\":\"rdf:Property\",\"type\":\"datatype\",\"label\":\"title\",\"domain\":\"http://www.essi.upc.edu/DTIM/NextiaDI/DataSource/Schema/bac08e07e9794e5495e19ee9287816e0/Object_1\",\"range\":\"http://www.w3.org/2001/XMLSchema#string\",\"isIntegrated\":false,\"linkId\":\"Link29\"},{\"id\":\"Class33\",\"iri\":\"http://www.essi.upc.edu/DTIM/NextiaDI/DataSource/Schema/bac08e07e9794e5495e19ee9287816e0/mda\",\"iriType\":\"http://www.w3.org/1999/02/22-rdf-syntax-ns#Property\",\"shortType\":\"rdf:Property\",\"type\":\"datatype\",\"label\":\"mda\",\"domain\":\"http://www.essi.upc.edu/DTIM/NextiaDI/DataSource/Schema/bac08e07e9794e5495e19ee9287816e0/Object_3\",\"range\":\"http://www.w3.org/2001/XMLSchema#string\",\"isIntegrated\":false,\"linkId\":\"Link30\"},{\"id\":\"Class34\",\"iri\":\"http://www.essi.upc.edu/DTIM/NextiaDI/DataSource/Schema/bac08e07e9794e5495e19ee9287816e0/displayOrder\",\"iriType\":\"http://www.w3.org/1999/02/22-rdf-syntax-ns#Property\",\"shortType\":\"rdf:Property\",\"type\":\"datatype\",\"label\":\"displayOrder\",\"domain\":\"http://www.essi.upc.edu/DTIM/NextiaDI/DataSource/Schema/bac08e07e9794e5495e19ee9287816e0/Object_3\",\"range\":\"http://www.w3.org/2001/XMLSchema#int\",\"isIntegrated\":false,\"linkId\":\"Link31\"},{\"id\":\"Class35\",\"iri\":\"http://www.essi.upc.edu/DTIM/NextiaDI/DataSource/Schema/bac08e07e9794e5495e19ee9287816e0/all_artists\",\"iriType\":\"http://www.w3.org/1999/02/22-rdf-syntax-ns#Property\",\"shortType\":\"rdf:Property\",\"type\":\"datatype\",\"label\":\"all_artists\",\"domain\":\"http://www.essi.upc.edu/DTIM/NextiaDI/DataSource/Schema/bac08e07e9794e5495e19ee9287816e0/Object_1\",\"range\":\"http://www.w3.org/2001/XMLSchema#string\",\"isIntegrated\":false,\"linkId\":\"Link32\"},{\"id\":\"Class36\",\"iri\":\"http://www.essi.upc.edu/DTIM/NextiaDI/DataSource/Schema/bac08e07e9794e5495e19ee9287816e0/foreignTitle\",\"iriType\":\"http://www.w3.org/1999/02/22-rdf-syntax-ns#Property\",\"shortType\":\"rdf:Property\",\"type\":\"datatype\",\"label\":\"foreignTitle\",\"domain\":\"http://www.essi.upc.edu/DTIM/NextiaDI/DataSource/Schema/bac08e07e9794e5495e19ee9287816e0/Object_1\",\"range\":\"http://www.w3.org/2001/XMLSchema#string\",\"isIntegrated\":false,\"linkId\":\"Link33\"},{\"id\":\"Class37\",\"iri\":\"http://www.essi.upc.edu/DTIM/NextiaDI/DataSource/Schema/bac08e07e9794e5495e19ee9287816e0/startYear\",\"iriType\":\"http://www.w3.org/1999/02/22-rdf-syntax-ns#Property\",\"shortType\":\"rdf:Property\",\"type\":\"datatype\",\"label\":\"startYear\",\"domain\":\"http://www.essi.upc.edu/DTIM/NextiaDI/DataSource/Schema/bac08e07e9794e5495e19ee9287816e0/Object_4\",\"range\":\"http://www.w3.org/2001/XMLSchema#int\",\"isIntegrated\":false,\"linkId\":\"Link34\"},{\"id\":\"Class38\",\"iri\":\"http://www.essi.upc.edu/DTIM/NextiaDI/DataSource/Schema/bac08e07e9794e5495e19ee9287816e0/Object_4\",\"iriType\":\"http://www.w3.org/2000/01/rdf-schema#Class\",\"shortType\":\"rdfs:Class\",\"type\":\"class\",\"label\":\"dateRange\",\"domain\":\"\",\"range\":\"\",\"isIntegrated\":false},{\"id\":\"Class39\",\"iri\":\"http://www.essi.upc.edu/DTIM/NextiaDI/DataSource/Schema/bac08e07e9794e5495e19ee9287816e0/Object_2\",\"iriType\":\"http://www.w3.org/2000/01/rdf-schema#Class\",\"shortType\":\"rdfs:Class\",\"type\":\"class\",\"label\":\"catalogueGroup\",\"domain\":\"\",\"range\":\"\",\"isIntegrated\":false},{\"id\":\"Class40\",\"iri\":\"http://www.essi.upc.edu/DTIM/NextiaDI/DataSource/Schema/bac08e07e9794e5495e19ee9287816e0/classification\",\"iriType\":\"http://www.w3.org/1999/02/22-rdf-syntax-ns#Property\",\"shortType\":\"rdf:Property\",\"type\":\"datatype\",\"label\":\"classification\",\"domain\":\"http://www.essi.upc.edu/DTIM/NextiaDI/DataSource/Schema/bac08e07e9794e5495e19ee9287816e0/Object_1\",\"range\":\"http://www.w3.org/2001/XMLSchema#string\",\"isIntegrated\":false,\"linkId\":\"Link35\"},{\"id\":\"Class41\",\"iri\":\"http://www.essi.upc.edu/DTIM/NextiaDI/DataSource/Schema/bac08e07e9794e5495e19ee9287816e0/thumbnailCopyright\",\"iriType\":\"http://www.w3.org/1999/02/22-rdf-syntax-ns#Property\",\"shortType\":\"rdf:Property\",\"type\":\"datatype\",\"label\":\"thumbnailCopyright\",\"domain\":\"http://www.essi.upc.edu/DTIM/NextiaDI/DataSource/Schema/bac08e07e9794e5495e19ee9287816e0/Object_1\",\"range\":\"http://www.w3.org/2001/XMLSchema#string\",\"isIntegrated\":false,\"linkId\":\"Link36\"},{\"id\":\"Class42\",\"iri\":\"http://www.essi.upc.edu/DTIM/NextiaDI/DataSource/Schema/bac08e07e9794e5495e19ee9287816e0/id\",\"iriType\":\"http://www.w3.org/1999/02/22-rdf-syntax-ns#Property\",\"shortType\":\"rdf:Property\",\"type\":\"datatype\",\"label\":\"id\",\"domain\":\"http://www.essi.upc.edu/DTIM/NextiaDI/DataSource/Schema/bac08e07e9794e5495e19ee9287816e0/Object_3\",\"range\":\"http://www.w3.org/2001/XMLSchema#int\",\"isIntegrated\":false,\"linkId\":\"Link37\"},{\"id\":\"Class43\",\"iri\":\"http://www.essi.upc.edu/DTIM/NextiaDI/DataSource/Schema/bac08e07e9794e5495e19ee9287816e0/groupTitle\",\"iriType\":\"http://www.w3.org/1999/02/22-rdf-syntax-ns#Property\",\"shortType\":\"rdf:Property\",\"type\":\"datatype\",\"label\":\"groupTitle\",\"domain\":\"http://www.essi.upc.edu/DTIM/NextiaDI/DataSource/Schema/bac08e07e9794e5495e19ee9287816e0/Object_1\",\"range\":\"http://www.w3.org/2001/XMLSchema#string\",\"isIntegrated\":false,\"linkId\":\"Link38\"},{\"id\":\"Datatype44\",\"iri\":\"http://www.w3.org/2001/XMLSchema#string\",\"shortType\":\"xsd:String\",\"type\":\"xsdType\",\"label\":\"string\",\"domain\":\"\",\"range\":\"\",\"isIntegrated\":false},{\"id\":\"Datatype45\",\"iri\":\"http://www.w3.org/2001/XMLSchema#string\",\"shortType\":\"xsd:String\",\"type\":\"xsdType\",\"label\":\"string\",\"domain\":\"\",\"range\":\"\",\"isIntegrated\":false},{\"id\":\"Datatype46\",\"iri\":\"http://www.w3.org/2001/XMLSchema#string\",\"shortType\":\"xsd:String\",\"type\":\"xsdType\",\"label\":\"string\",\"domain\":\"\",\"range\":\"\",\"isIntegrated\":false},{\"id\":\"Datatype47\",\"iri\":\"http://www.w3.org/2001/XMLSchema#int\",\"shortType\":\"xsd:String\",\"type\":\"xsdType\",\"label\":\"int\",\"domain\":\"\",\"range\":\"\",\"isIntegrated\":false},{\"id\":\"Datatype48\",\"iri\":\"http://www.w3.org/2001/XMLSchema#string\",\"shortType\":\"xsd:String\",\"type\":\"xsdType\",\"label\":\"string\",\"domain\":\"\",\"range\":\"\",\"isIntegrated\":false},{\"id\":\"Datatype49\",\"iri\":\"http://www.w3.org/2001/XMLSchema#int\",\"shortType\":\"xsd:String\",\"type\":\"xsdType\",\"label\":\"int\",\"domain\":\"\",\"range\":\"\",\"isIntegrated\":false},{\"id\":\"Datatype50\",\"iri\":\"http://www.w3.org/2001/XMLSchema#string\",\"shortType\":\"xsd:String\",\"type\":\"xsdType\",\"label\":\"string\",\"domain\":\"\",\"range\":\"\",\"isIntegrated\":false},{\"id\":\"Datatype51\",\"iri\":\"http://www.w3.org/2001/XMLSchema#string\",\"shortType\":\"xsd:String\",\"type\":\"xsdType\",\"label\":\"string\",\"domain\":\"\",\"range\":\"\",\"isIntegrated\":false},{\"id\":\"Datatype52\",\"iri\":\"http://www.w3.org/2001/XMLSchema#string\",\"shortType\":\"xsd:String\",\"type\":\"xsdType\",\"label\":\"string\",\"domain\":\"\",\"range\":\"\",\"isIntegrated\":false},{\"id\":\"Datatype53\",\"iri\":\"http://www.w3.org/2001/XMLSchema#string\",\"shortType\":\"xsd:String\",\"type\":\"xsdType\",\"label\":\"string\",\"domain\":\"\",\"range\":\"\",\"isIntegrated\":false},{\"id\":\"Datatype54\",\"iri\":\"http://www.w3.org/2001/XMLSchema#int\",\"shortType\":\"xsd:String\",\"type\":\"xsdType\",\"label\":\"int\",\"domain\":\"\",\"range\":\"\",\"isIntegrated\":false},{\"id\":\"Datatype55\",\"iri\":\"http://www.w3.org/2001/XMLSchema#int\",\"shortType\":\"xsd:String\",\"type\":\"xsdType\",\"label\":\"int\",\"domain\":\"\",\"range\":\"\",\"isIntegrated\":false},{\"id\":\"Datatype56\",\"iri\":\"http://www.w3.org/2001/XMLSchema#string\",\"shortType\":\"xsd:String\",\"type\":\"xsdType\",\"label\":\"string\",\"domain\":\"\",\"range\":\"\",\"isIntegrated\":false},{\"id\":\"Datatype57\",\"iri\":\"http://www.w3.org/2001/XMLSchema#string\",\"shortType\":\"xsd:String\",\"type\":\"xsdType\",\"label\":\"string\",\"domain\":\"\",\"range\":\"\",\"isIntegrated\":false},{\"id\":\"Datatype58\",\"iri\":\"http://www.w3.org/2001/XMLSchema#int\",\"shortType\":\"xsd:String\",\"type\":\"xsdType\",\"label\":\"int\",\"domain\":\"\",\"range\":\"\",\"isIntegrated\":false},{\"id\":\"Datatype59\",\"iri\":\"http://www.w3.org/2001/XMLSchema#string\",\"shortType\":\"xsd:String\",\"type\":\"xsdType\",\"label\":\"string\",\"domain\":\"\",\"range\":\"\",\"isIntegrated\":false},{\"id\":\"Datatype60\",\"iri\":\"http://www.w3.org/2001/XMLSchema#string\",\"shortType\":\"xsd:String\",\"type\":\"xsdType\",\"label\":\"string\",\"domain\":\"\",\"range\":\"\",\"isIntegrated\":false},{\"id\":\"Datatype61\",\"iri\":\"http://www.w3.org/2001/XMLSchema#string\",\"shortType\":\"xsd:String\",\"type\":\"xsdType\",\"label\":\"string\",\"domain\":\"\",\"range\":\"\",\"isIntegrated\":false},{\"id\":\"Datatype62\",\"iri\":\"http://www.w3.org/2001/XMLSchema#int\",\"shortType\":\"xsd:String\",\"type\":\"xsdType\",\"label\":\"int\",\"domain\":\"\",\"range\":\"\",\"isIntegrated\":false},{\"id\":\"Datatype63\",\"iri\":\"http://www.w3.org/2001/XMLSchema#int\",\"shortType\":\"xsd:String\",\"type\":\"xsdType\",\"label\":\"int\",\"domain\":\"\",\"range\":\"\",\"isIntegrated\":false},{\"id\":\"Datatype64\",\"iri\":\"http://www.w3.org/2001/XMLSchema#string\",\"shortType\":\"xsd:String\",\"type\":\"xsdType\",\"label\":\"string\",\"domain\":\"\",\"range\":\"\",\"isIntegrated\":false},{\"id\":\"Datatype65\",\"iri\":\"http://www.w3.org/2001/XMLSchema#string\",\"shortType\":\"xsd:String\",\"type\":\"xsdType\",\"label\":\"string\",\"domain\":\"\",\"range\":\"\",\"isIntegrated\":false},{\"id\":\"Datatype66\",\"iri\":\"http://www.w3.org/2001/XMLSchema#string\",\"shortType\":\"xsd:String\",\"type\":\"xsdType\",\"label\":\"string\",\"domain\":\"\",\"range\":\"\",\"isIntegrated\":false},{\"id\":\"Datatype67\",\"iri\":\"http://www.w3.org/2001/XMLSchema#string\",\"shortType\":\"xsd:String\",\"type\":\"xsdType\",\"label\":\"string\",\"domain\":\"\",\"range\":\"\",\"isIntegrated\":false},{\"id\":\"Datatype68\",\"iri\":\"http://www.w3.org/2001/XMLSchema#string\",\"shortType\":\"xsd:String\",\"type\":\"xsdType\",\"label\":\"string\",\"domain\":\"\",\"range\":\"\",\"isIntegrated\":false},{\"id\":\"Datatype69\",\"iri\":\"http://www.w3.org/2001/XMLSchema#string\",\"shortType\":\"xsd:String\",\"type\":\"xsdType\",\"label\":\"string\",\"domain\":\"\",\"range\":\"\",\"isIntegrated\":false},{\"id\":\"Datatype70\",\"iri\":\"http://www.w3.org/2001/XMLSchema#string\",\"shortType\":\"xsd:String\",\"type\":\"xsdType\",\"label\":\"string\",\"domain\":\"\",\"range\":\"\",\"isIntegrated\":false},{\"id\":\"Datatype71\",\"iri\":\"http://www.w3.org/2001/XMLSchema#int\",\"shortType\":\"xsd:String\",\"type\":\"xsdType\",\"label\":\"int\",\"domain\":\"\",\"range\":\"\",\"isIntegrated\":false},{\"id\":\"Datatype72\",\"iri\":\"http://www.w3.org/2001/XMLSchema#string\",\"shortType\":\"xsd:String\",\"type\":\"xsdType\",\"label\":\"string\",\"domain\":\"\",\"range\":\"\",\"isIntegrated\":false},{\"id\":\"Datatype73\",\"iri\":\"http://www.w3.org/2001/XMLSchema#string\",\"shortType\":\"xsd:String\",\"type\":\"xsdType\",\"label\":\"string\",\"domain\":\"\",\"range\":\"\",\"isIntegrated\":false},{\"id\":\"Datatype74\",\"iri\":\"http://www.w3.org/2001/XMLSchema#int\",\"shortType\":\"xsd:String\",\"type\":\"xsdType\",\"label\":\"int\",\"domain\":\"\",\"range\":\"\",\"isIntegrated\":false},{\"id\":\"Datatype75\",\"iri\":\"http://www.w3.org/2001/XMLSchema#string\",\"shortType\":\"xsd:String\",\"type\":\"xsdType\",\"label\":\"string\",\"domain\":\"\",\"range\":\"\",\"isIntegrated\":false},{\"id\":\"Datatype76\",\"iri\":\"http://www.w3.org/2001/XMLSchema#string\",\"shortType\":\"xsd:String\",\"type\":\"xsdType\",\"label\":\"string\",\"domain\":\"\",\"range\":\"\",\"isIntegrated\":false},{\"id\":\"Datatype77\",\"iri\":\"http://www.w3.org/2001/XMLSchema#int\",\"shortType\":\"xsd:String\",\"type\":\"xsdType\",\"label\":\"int\",\"domain\":\"\",\"range\":\"\",\"isIntegrated\":false},{\"id\":\"Datatype78\",\"iri\":\"http://www.w3.org/2001/XMLSchema#string\",\"shortType\":\"xsd:String\",\"type\":\"xsdType\",\"label\":\"string\",\"domain\":\"\",\"range\":\"\",\"isIntegrated\":false}],\"links\":[{\"id\":\"Link1\",\"nodeId\":\"Class2\",\"source\":\"Class15\",\"target\":\"Datatype44\",\"label\":\"inscription\"},{\"id\":\"Link2\",\"nodeId\":\"Class3\",\"source\":\"Class14\",\"target\":\"Datatype45\",\"label\":\"gender\"},{\"id\":\"Link3\",\"nodeId\":\"Class4\",\"source\":\"Class15\",\"target\":\"Datatype46\",\"label\":\"thumbnailUrl\"},{\"id\":\"Link4\",\"nodeId\":\"Class5\",\"source\":\"Class38\",\"target\":\"Datatype47\",\"label\":\"endYear\"},{\"id\":\"Link5\",\"nodeId\":\"Class6\",\"source\":\"Class14\",\"target\":\"Datatype48\",\"label\":\"date\"},{\"id\":\"Link6\",\"nodeId\":\"Class7\",\"source\":\"Class15\",\"target\":\"Datatype49\",\"label\":\"movementCount\"},{\"id\":\"Link7\",\"nodeId\":\"Class8\",\"source\":\"Class15\",\"target\":\"Datatype50\",\"label\":\"url\"},{\"id\":\"Link8\",\"nodeId\":\"Class9\",\"source\":\"Class15\",\"target\":\"Datatype51\",\"label\":\"units\"},{\"id\":\"Link9\",\"nodeId\":\"Class10\",\"source\":\"Class38\",\"target\":\"Datatype52\",\"label\":\"text\"},{\"id\":\"Link10\",\"nodeId\":\"Class11\",\"source\":\"Class15\",\"target\":\"Datatype53\",\"label\":\"height\"},{\"id\":\"Link11\",\"nodeId\":\"Class12\",\"source\":\"Class15\",\"target\":\"Datatype54\",\"label\":\"contributorCount\"},{\"id\":\"Link12\",\"nodeId\":\"Class13\",\"source\":\"Class15\",\"target\":\"Datatype55\",\"label\":\"acquisitionYear\"},{\"id\":\"Link13\",\"nodeId\":\"Class16\",\"source\":\"Class15\",\"target\":\"Datatype56\",\"label\":\"acno\"},{\"id\":\"Link14\",\"nodeId\":\"Class17\",\"source\":\"Class15\",\"target\":\"Class38\",\"label\":\"has dateRange\"},{\"id\":\"Link15\",\"nodeId\":\"Class18\",\"source\":\"Class15\",\"target\":\"Datatype57\",\"label\":\"dateText\"},{\"id\":\"Link16\",\"nodeId\":\"Class19\",\"source\":\"Class15\",\"target\":\"Datatype58\",\"label\":\"subjectCount\"},{\"id\":\"Link17\",\"nodeId\":\"Class20\",\"source\":\"Class14\",\"target\":\"Datatype59\",\"label\":\"startLetter\"},{\"id\":\"Link18\",\"nodeId\":\"Class21\",\"source\":\"Class14\",\"target\":\"Datatype60\",\"label\":\"fc\"},{\"id\":\"Link19\",\"nodeId\":\"Class22\",\"source\":\"Class15\",\"target\":\"Datatype61\",\"label\":\"medium\"},{\"id\":\"Link20\",\"nodeId\":\"Class23\",\"source\":\"Class15\",\"target\":\"Datatype62\",\"label\":\"id2\"},{\"id\":\"Link21\",\"nodeId\":\"Class24\",\"source\":\"Class15\",\"target\":\"Class14\",\"label\":\"has contributors\"},{\"id\":\"Link22\",\"nodeId\":\"Class25\",\"source\":\"Class14\",\"target\":\"Datatype63\",\"label\":\"birthYear\"},{\"id\":\"Link23\",\"nodeId\":\"Class26\",\"source\":\"Class15\",\"target\":\"Datatype64\",\"label\":\"dimensions\"},{\"id\":\"Link24\",\"nodeId\":\"Class27\",\"source\":\"Class15\",\"target\":\"Datatype65\",\"label\":\"width\"},{\"id\":\"Link25\",\"nodeId\":\"Class28\",\"source\":\"Class15\",\"target\":\"Datatype66\",\"label\":\"depth\"},{\"id\":\"Link26\",\"nodeId\":\"Class29\",\"source\":\"Class14\",\"target\":\"Datatype67\",\"label\":\"role\"},{\"id\":\"Link27\",\"nodeId\":\"Class30\",\"source\":\"Class15\",\"target\":\"Class39\",\"label\":\"has catalogueGroup\"},{\"id\":\"Link28\",\"nodeId\":\"Class31\",\"source\":\"Class15\",\"target\":\"Datatype68\",\"label\":\"creditLine\"},{\"id\":\"Link29\",\"nodeId\":\"Class32\",\"source\":\"Class15\",\"target\":\"Datatype69\",\"label\":\"title\"},{\"id\":\"Link30\",\"nodeId\":\"Class33\",\"source\":\"Class14\",\"target\":\"Datatype70\",\"label\":\"mda\"},{\"id\":\"Link31\",\"nodeId\":\"Class34\",\"source\":\"Class14\",\"target\":\"Datatype71\",\"label\":\"displayOrder\"},{\"id\":\"Link32\",\"nodeId\":\"Class35\",\"source\":\"Class15\",\"target\":\"Datatype72\",\"label\":\"all_artists\"},{\"id\":\"Link33\",\"nodeId\":\"Class36\",\"source\":\"Class15\",\"target\":\"Datatype73\",\"label\":\"foreignTitle\"},{\"id\":\"Link34\",\"nodeId\":\"Class37\",\"source\":\"Class38\",\"target\":\"Datatype74\",\"label\":\"startYear\"},{\"id\":\"Link35\",\"nodeId\":\"Class40\",\"source\":\"Class15\",\"target\":\"Datatype75\",\"label\":\"classification\"},{\"id\":\"Link36\",\"nodeId\":\"Class41\",\"source\":\"Class15\",\"target\":\"Datatype76\",\"label\":\"thumbnailCopyright\"},{\"id\":\"Link37\",\"nodeId\":\"Class42\",\"source\":\"Class14\",\"target\":\"Datatype77\",\"label\":\"id\"},{\"id\":\"Link38\",\"nodeId\":\"Class43\",\"source\":\"Class15\",\"target\":\"Datatype78\",\"label\":\"groupTitle\"}]}" ;
+        nextiaDataSource:hasFileName   "S3U3aL7NHafzsX8Y_tate_artworks_p11364_20856.json" ;
+        nextiaDataSource:hasFileSize   "1353bytes" ;
+        nextiaDataSource:hasProjectID  "e3ddf3d7b01140e0b3f3ae9abead5420" ;
+        nextiaDataSource:id            "bac08e07e9794e5495e19ee9287816e0" ;
+        nextiaDataSource:path          "/Users/javierflores/Documents/upc/projects/newODIN/api/landing_zone/persistent/ds/S3U3aL7NHafzsX8Y_tate_artworks_p11364_20856.json" ;
+        nextiaDataSource:wrapper       "SELECT contributors_view.date,contributors_view.role,all_artists,contributors_view.gender,contributors_view.displayOrder,groupTitle,acquisitionYear,medium,units,thumbnailCopyright,title,dateRange.endYear,foreignTitle,acno,movementCount,creditLine,inscription,contributors_view.id,dateRange.text,height,thumbnailUrl,dateText,contributors_view.startLetter,dateRange.startYear,contributors_view.mda,classification,url,depth,contributors_view.birthYear,id AS id2,width,contributorCount,contributors_view.fc,dimensions,subjectCount FROM artworks LATERAL VIEW explode(contributors) AS contributors_view" .
+
+nextiaSchema:startLetter
+        rdf:type     rdf:Property ;
+        rdfs:domain  <http://www.essi.upc.edu/DTIM/NextiaDI/artist> ;
+        rdfs:label   "startLetter" ;
+        rdfs:range   xsd:string .
+
+nextiaSchema:Object_2
+        rdf:type    rdfs:Class ;
+        rdfs:label  "birth" .
+
+<http://www.essi.upc.edu/DTIM/NextiaDI/mda_mda>
+        rdf:type     <http://www.essi.upc.edu/DTIM/NextiaDI/IntegratedDatatypeProperty> ;
+        rdfs:domain  <http://www.essi.upc.edu/DTIM/NextiaDI/artist> ;
+        rdfs:range   xsd:string .
+
+nextiaSchema:name2  rdf:type  rdf:Property ;
+        rdfs:domain  nextiaSchema:Object_6 ;
+        rdfs:label   "name2" ;
+        rdfs:range   xsd:string .
+
+<http://www.essi.upc.edu/DTIM/NextiaDI/DataSource/Schema/bac08e07e9794e5495e19ee9287816e0/displayOrder>
+        rdf:type     rdf:Property ;
+        rdfs:domain  <http://www.essi.upc.edu/DTIM/NextiaDI/artist> ;
+        rdfs:label   "displayOrder" ;
+        rdfs:range   xsd:int .
+
+<http://www.essi.upc.edu/DTIM/NextiaDI/DataSource/Schema/bac08e07e9794e5495e19ee9287816e0/groupTitle>
+        rdf:type     rdf:Property ;
+        rdfs:domain  <http://www.essi.upc.edu/DTIM/NextiaDI/DataSource/Schema/bac08e07e9794e5495e19ee9287816e0/Object_1> ;
+        rdfs:label   "groupTitle" ;
+        rdfs:range   xsd:string .
+
+nextiaSchema:id2  rdf:type  rdf:Property ;
+        rdfs:domain  nextiaSchema:Object_9 ;
+        rdfs:label   "id2" ;
+        rdfs:range   xsd:int .
+
+<http://www.essi.upc.edu/DTIM/NextiaDI/DataSource/Schema/bac08e07e9794e5495e19ee9287816e0/height>
+        rdf:type     rdf:Property ;
+        rdfs:domain  <http://www.essi.upc.edu/DTIM/NextiaDI/DataSource/Schema/bac08e07e9794e5495e19ee9287816e0/Object_1> ;
+        rdfs:label   "height" ;
+        rdfs:range   xsd:string .
+
+<http://www.essi.upc.edu/DTIM/NextiaDI/DataSource/Schema/bac08e07e9794e5495e19ee9287816e0/width>
+        rdf:type     rdf:Property ;
+        rdfs:domain  <http://www.essi.upc.edu/DTIM/NextiaDI/DataSource/Schema/bac08e07e9794e5495e19ee9287816e0/Object_1> ;
+        rdfs:label   "width" ;
+        rdfs:range   xsd:string .
+
+nextiaSchema:url  rdf:type  rdf:Property ;
+        rdfs:domain  <http://www.essi.upc.edu/DTIM/NextiaDI/artist> ;
+        rdfs:label   "url" ;
+        rdfs:range   xsd:string .
+
+<http://www.essi.upc.edu/DTIM/NextiaDI/DataSource/Schema/bac08e07e9794e5495e19ee9287816e0/depth>
+        rdf:type     rdf:Property ;
+        rdfs:domain  <http://www.essi.upc.edu/DTIM/NextiaDI/DataSource/Schema/bac08e07e9794e5495e19ee9287816e0/Object_1> ;
+        rdfs:label   "depth" ;
+        rdfs:range   xsd:string .
+
+nextiaSchema:time2  rdf:type  rdf:Property ;
+        rdfs:domain  nextiaSchema:Object_5 ;
+        rdfs:label   "has time2" ;
+        rdfs:range   nextiaSchema:Object_7 .
+
+<http://www.essi.upc.edu/DTIM/NextiaDI/DataSource/Schema/bac08e07e9794e5495e19ee9287816e0/thumbnailCopyright>
+        rdf:type     rdf:Property ;
+        rdfs:domain  <http://www.essi.upc.edu/DTIM/NextiaDI/DataSource/Schema/bac08e07e9794e5495e19ee9287816e0/Object_1> ;
+        rdfs:label   "thumbnailCopyright" ;
+        rdfs:range   xsd:string .
+
+<http://www.essi.upc.edu/DTIM/NextiaDI/DataSource/Schema/bac08e07e9794e5495e19ee9287816e0/text>
+        rdf:type     rdf:Property ;
+        rdfs:domain  <http://www.essi.upc.edu/DTIM/NextiaDI/DataSource/Schema/bac08e07e9794e5495e19ee9287816e0/Object_4> ;
+        rdfs:label   "text" ;
+        rdfs:range   xsd:string .
+
+nextiaSchema:Object_7
+        rdf:type    rdfs:Class ;
+        rdfs:label  "time" .
+
+nextiaDataSource:38530e7457fd4c27ba2fe6ba7429377f
+        rdf:type                       <http://www.essi.upc.edu/DTIM/NextiaDI/DataSource> ;
+        rdfs:label                     "artist" ;
+        nextiaDataSource:description   "" ;
+        nextiaDataSource:format        "JSON" ;
+        nextiaDataSource:graphicalGraph
+                "{\"nodes\":[{\"id\":\"Class1\",\"iri\":\"http://www.essi.upc.edu/DTIM/NextiaDI/DataSource/Schema/38530e7457fd4c27ba2fe6ba7429377f/id\",\"iriType\":\"http://www.w3.org/1999/02/22-rdf-syntax-ns#Property\",\"shortType\":\"rdf:Property\",\"type\":\"datatype\",\"label\":\"id\",\"domain\":\"http://www.essi.upc.edu/DTIM/NextiaDI/DataSource/Schema/38530e7457fd4c27ba2fe6ba7429377f/Object_1\",\"range\":\"http://www.w3.org/2001/XMLSchema#int\",\"isIntegrated\":false,\"linkId\":\"Link1\"},{\"id\":\"Class2\",\"iri\":\"http://www.essi.upc.edu/DTIM/NextiaDI/DataSource/Schema/38530e7457fd4c27ba2fe6ba7429377f/id3\",\"iriType\":\"http://www.w3.org/1999/02/22-rdf-syntax-ns#Property\",\"shortType\":\"rdf:Property\",\"type\":\"datatype\",\"label\":\"id3\",\"domain\":\"http://www.essi.upc.edu/DTIM/NextiaDI/DataSource/Schema/38530e7457fd4c27ba2fe6ba7429377f/Object_8\",\"range\":\"http://www.w3.org/2001/XMLSchema#int\",\"isIntegrated\":false,\"linkId\":\"Link2\"},{\"id\":\"Class3\",\"iri\":\"http://www.essi.upc.edu/DTIM/NextiaDI/DataSource/Schema/38530e7457fd4c27ba2fe6ba7429377f/Object_6\",\"iriType\":\"http://www.w3.org/2000/01/rdf-schema#Class\",\"shortType\":\"rdfs:Class\",\"type\":\"class\",\"label\":\"place\",\"domain\":\"\",\"range\":\"\",\"isIntegrated\":false},{\"id\":\"Class4\",\"iri\":\"http://www.essi.upc.edu/DTIM/NextiaDI/DataSource/Schema/38530e7457fd4c27ba2fe6ba7429377f/Object_8\",\"iriType\":\"http://www.w3.org/2000/01/rdf-schema#Class\",\"shortType\":\"rdfs:Class\",\"type\":\"class\",\"label\":\"Array_1\",\"domain\":\"\",\"range\":\"\",\"isIntegrated\":false},{\"id\":\"Class5\",\"iri\":\"http://www.essi.upc.edu/DTIM/NextiaDI/DataSource/Schema/38530e7457fd4c27ba2fe6ba7429377f/death\",\"iriType\":\"http://www.w3.org/1999/02/22-rdf-syntax-ns#Property\",\"shortType\":\"rdf:Property\",\"type\":\"object\",\"label\":\"has death\",\"domain\":\"http://www.essi.upc.edu/DTIM/NextiaDI/DataSource/Schema/38530e7457fd4c27ba2fe6ba7429377f/Object_1\",\"range\":\"http://www.essi.upc.edu/DTIM/NextiaDI/DataSource/Schema/38530e7457fd4c27ba2fe6ba7429377f/Object_5\",\"isIntegrated\":false,\"linkId\":\"Link3\"},{\"id\":\"Class6\",\"iri\":\"http://www.essi.upc.edu/DTIM/NextiaDI/DataSource/Schema/38530e7457fd4c27ba2fe6ba7429377f/birth\",\"iriType\":\"http://www.w3.org/1999/02/22-rdf-syntax-ns#Property\",\"shortType\":\"rdf:Property\",\"type\":\"object\",\"label\":\"has birth\",\"domain\":\"http://www.essi.upc.edu/DTIM/NextiaDI/DataSource/Schema/38530e7457fd4c27ba2fe6ba7429377f/Object_1\",\"range\":\"http://www.essi.upc.edu/DTIM/NextiaDI/DataSource/Schema/38530e7457fd4c27ba2fe6ba7429377f/Object_2\",\"isIntegrated\":false,\"linkId\":\"Link4\"},{\"id\":\"Class7\",\"iri\":\"http://www.essi.upc.edu/DTIM/NextiaDI/DataSource/Schema/38530e7457fd4c27ba2fe6ba7429377f/name3\",\"iriType\":\"http://www.w3.org/1999/02/22-rdf-syntax-ns#Property\",\"shortType\":\"rdf:Property\",\"type\":\"datatype\",\"label\":\"name3\",\"domain\":\"http://www.essi.upc.edu/DTIM/NextiaDI/DataSource/Schema/38530e7457fd4c27ba2fe6ba7429377f/Object_9\",\"range\":\"http://www.w3.org/2001/XMLSchema#string\",\"isIntegrated\":false,\"linkId\":\"Link5\"},{\"id\":\"Class8\",\"iri\":\"http://www.essi.upc.edu/DTIM/NextiaDI/DataSource/Schema/38530e7457fd4c27ba2fe6ba7429377f/Object_2\",\"iriType\":\"http://www.w3.org/2000/01/rdf-schema#Class\",\"shortType\":\"rdfs:Class\",\"type\":\"class\",\"label\":\"birth\",\"domain\":\"\",\"range\":\"\",\"isIntegrated\":false},{\"id\":\"Class9\",\"iri\":\"http://www.essi.upc.edu/DTIM/NextiaDI/DataSource/Schema/38530e7457fd4c27ba2fe6ba7429377f/Object_4\",\"iriType\":\"http://www.w3.org/2000/01/rdf-schema#Class\",\"shortType\":\"rdfs:Class\",\"type\":\"class\",\"label\":\"time\",\"domain\":\"\",\"range\":\"\",\"isIntegrated\":false},{\"id\":\"Class10\",\"iri\":\"http://www.essi.upc.edu/DTIM/NextiaDI/DataSource/Schema/38530e7457fd4c27ba2fe6ba7429377f/startYear\",\"iriType\":\"http://www.w3.org/1999/02/22-rdf-syntax-ns#Property\",\"shortType\":\"rdf:Property\",\"type\":\"datatype\",\"label\":\"startYear\",\"domain\":\"http://www.essi.upc.edu/DTIM/NextiaDI/DataSource/Schema/38530e7457fd4c27ba2fe6ba7429377f/Object_4\",\"range\":\"http://www.w3.org/2001/XMLSchema#int\",\"isIntegrated\":false,\"linkId\":\"Link6\"},{\"id\":\"Class11\",\"iri\":\"http://www.essi.upc.edu/DTIM/NextiaDI/DataSource/Schema/38530e7457fd4c27ba2fe6ba7429377f/mda\",\"iriType\":\"http://www.w3.org/1999/02/22-rdf-syntax-ns#Property\",\"shortType\":\"rdf:Property\",\"type\":\"datatype\",\"label\":\"mda\",\"domain\":\"http://www.essi.upc.edu/DTIM/NextiaDI/DataSource/Schema/38530e7457fd4c27ba2fe6ba7429377f/Object_1\",\"range\":\"http://www.w3.org/2001/XMLSchema#string\",\"isIntegrated\":false,\"linkId\":\"Link7\"},{\"id\":\"Class12\",\"iri\":\"http://www.essi.upc.edu/DTIM/NextiaDI/DataSource/Schema/38530e7457fd4c27ba2fe6ba7429377f/name\",\"iriType\":\"http://www.w3.org/1999/02/22-rdf-syntax-ns#Property\",\"shortType\":\"rdf:Property\",\"type\":\"datatype\",\"label\":\"name\",\"domain\":\"http://www.essi.upc.edu/DTIM/NextiaDI/DataSource/Schema/38530e7457fd4c27ba2fe6ba7429377f/Object_3\",\"range\":\"http://www.w3.org/2001/XMLSchema#string\",\"isIntegrated\":false,\"linkId\":\"Link8\"},{\"id\":\"Class13\",\"iri\":\"http://www.essi.upc.edu/DTIM/NextiaDI/DataSource/Schema/38530e7457fd4c27ba2fe6ba7429377f/placeType\",\"iriType\":\"http://www.w3.org/1999/02/22-rdf-syntax-ns#Property\",\"shortType\":\"rdf:Property\",\"type\":\"datatype\",\"label\":\"placeType\",\"domain\":\"http://www.essi.upc.edu/DTIM/NextiaDI/DataSource/Schema/38530e7457fd4c27ba2fe6ba7429377f/Object_3\",\"range\":\"http://www.w3.org/2001/XMLSchema#string\",\"isIntegrated\":false,\"linkId\":\"Link9\"},{\"id\":\"Class15\",\"iri\":\"http://www.essi.upc.edu/DTIM/NextiaDI/DataSource/Schema/38530e7457fd4c27ba2fe6ba7429377f/place2\",\"iriType\":\"http://www.w3.org/1999/02/22-rdf-syntax-ns#Property\",\"shortType\":\"rdf:Property\",\"type\":\"object\",\"label\":\"has place2\",\"domain\":\"http://www.essi.upc.edu/DTIM/NextiaDI/DataSource/Schema/38530e7457fd4c27ba2fe6ba7429377f/Object_5\",\"range\":\"http://www.essi.upc.edu/DTIM/NextiaDI/DataSource/Schema/38530e7457fd4c27ba2fe6ba7429377f/Object_6\",\"isIntegrated\":false,\"linkId\":\"Link10\"},{\"id\":\"Class16\",\"iri\":\"http://www.essi.upc.edu/DTIM/NextiaDI/DataSource/Schema/38530e7457fd4c27ba2fe6ba7429377f/fc\",\"iriType\":\"http://www.w3.org/1999/02/22-rdf-syntax-ns#Property\",\"shortType\":\"rdf:Property\",\"type\":\"datatype\",\"label\":\"fc\",\"domain\":\"http://www.essi.upc.edu/DTIM/NextiaDI/DataSource/Schema/38530e7457fd4c27ba2fe6ba7429377f/Object_1\",\"range\":\"http://www.w3.org/2001/XMLSchema#string\",\"isIntegrated\":false,\"linkId\":\"Link11\"},{\"id\":\"Class17\",\"iri\":\"http://www.essi.upc.edu/DTIM/NextiaDI/DataSource/Schema/38530e7457fd4c27ba2fe6ba7429377f/Object_9\",\"iriType\":\"http://www.w3.org/2000/01/rdf-schema#Class\",\"shortType\":\"rdfs:Class\",\"type\":\"class\",\"label\":\"era\",\"domain\":\"\",\"range\":\"\",\"isIntegrated\":false},{\"id\":\"Class18\",\"iri\":\"http://www.essi.upc.edu/DTIM/NextiaDI/DataSource/Schema/38530e7457fd4c27ba2fe6ba7429377f/Object_5\",\"iriType\":\"http://www.w3.org/2000/01/rdf-schema#Class\",\"shortType\":\"rdfs:Class\",\"type\":\"class\",\"label\":\"death\",\"domain\":\"\",\"range\":\"\",\"isIntegrated\":false},{\"id\":\"Class19\",\"iri\":\"http://www.essi.upc.edu/DTIM/NextiaDI/DataSource/Schema/38530e7457fd4c27ba2fe6ba7429377f/id2\",\"iriType\":\"http://www.w3.org/1999/02/22-rdf-syntax-ns#Property\",\"shortType\":\"rdf:Property\",\"type\":\"datatype\",\"label\":\"id2\",\"domain\":\"http://www.essi.upc.edu/DTIM/NextiaDI/DataSource/Schema/38530e7457fd4c27ba2fe6ba7429377f/Object_9\",\"range\":\"http://www.w3.org/2001/XMLSchema#int\",\"isIntegrated\":false,\"linkId\":\"Link12\"},{\"id\":\"Class20\",\"iri\":\"http://www.essi.upc.edu/DTIM/NextiaDI/DataSource/Schema/38530e7457fd4c27ba2fe6ba7429377f/gender\",\"iriType\":\"http://www.w3.org/1999/02/22-rdf-syntax-ns#Property\",\"shortType\":\"rdf:Property\",\"type\":\"datatype\",\"label\":\"gender\",\"domain\":\"http://www.essi.upc.edu/DTIM/NextiaDI/DataSource/Schema/38530e7457fd4c27ba2fe6ba7429377f/Object_1\",\"range\":\"http://www.w3.org/2001/XMLSchema#string\",\"isIntegrated\":false,\"linkId\":\"Link13\"},{\"id\":\"Class21\",\"iri\":\"http://www.essi.upc.edu/DTIM/NextiaDI/DataSource/Schema/38530e7457fd4c27ba2fe6ba7429377f/Object_7\",\"iriType\":\"http://www.w3.org/2000/01/rdf-schema#Class\",\"shortType\":\"rdfs:Class\",\"type\":\"class\",\"label\":\"time\",\"domain\":\"\",\"range\":\"\",\"isIntegrated\":false},{\"id\":\"Class22\",\"iri\":\"http://www.essi.upc.edu/DTIM/NextiaDI/DataSource/Schema/38530e7457fd4c27ba2fe6ba7429377f/placeName\",\"iriType\":\"http://www.w3.org/1999/02/22-rdf-syntax-ns#Property\",\"shortType\":\"rdf:Property\",\"type\":\"datatype\",\"label\":\"placeName\",\"domain\":\"http://www.essi.upc.edu/DTIM/NextiaDI/DataSource/Schema/38530e7457fd4c27ba2fe6ba7429377f/Object_3\",\"range\":\"http://www.w3.org/2001/XMLSchema#string\",\"isIntegrated\":false,\"linkId\":\"Link14\"},{\"id\":\"Class23\",\"iri\":\"http://www.essi.upc.edu/DTIM/NextiaDI/DataSource/Schema/38530e7457fd4c27ba2fe6ba7429377f/startYear2\",\"iriType\":\"http://www.w3.org/1999/02/22-rdf-syntax-ns#Property\",\"shortType\":\"rdf:Property\",\"type\":\"datatype\",\"label\":\"startYear2\",\"domain\":\"http://www.essi.upc.edu/DTIM/NextiaDI/DataSource/Schema/38530e7457fd4c27ba2fe6ba7429377f/Object_7\",\"range\":\"http://www.w3.org/2001/XMLSchema#int\",\"isIntegrated\":false,\"linkId\":\"Link15\"},{\"id\":\"Class24\",\"iri\":\"http://www.essi.upc.edu/DTIM/NextiaDI/DataSource/Schema/38530e7457fd4c27ba2fe6ba7429377f/name2\",\"iriType\":\"http://www.w3.org/1999/02/22-rdf-syntax-ns#Property\",\"shortType\":\"rdf:Property\",\"type\":\"datatype\",\"label\":\"name2\",\"domain\":\"http://www.essi.upc.edu/DTIM/NextiaDI/DataSource/Schema/38530e7457fd4c27ba2fe6ba7429377f/Object_6\",\"range\":\"http://www.w3.org/2001/XMLSchema#string\",\"isIntegrated\":false,\"linkId\":\"Link16\"},{\"id\":\"Class25\",\"iri\":\"http://www.essi.upc.edu/DTIM/NextiaDI/DataSource/Schema/38530e7457fd4c27ba2fe6ba7429377f/Object_1\",\"iriType\":\"http://www.w3.org/2000/01/rdf-schema#Class\",\"shortType\":\"rdfs:Class\",\"type\":\"class\",\"label\":\"artist\",\"domain\":\"\",\"range\":\"\",\"isIntegrated\":false},{\"id\":\"Class26\",\"iri\":\"http://www.essi.upc.edu/DTIM/NextiaDI/DataSource/Schema/38530e7457fd4c27ba2fe6ba7429377f/place\",\"iriType\":\"http://www.w3.org/1999/02/22-rdf-syntax-ns#Property\",\"shortType\":\"rdf:Property\",\"type\":\"object\",\"label\":\"has place\",\"domain\":\"http://www.essi.upc.edu/DTIM/NextiaDI/DataSource/Schema/38530e7457fd4c27ba2fe6ba7429377f/Object_2\",\"range\":\"http://www.essi.upc.edu/DTIM/NextiaDI/DataSource/Schema/38530e7457fd4c27ba2fe6ba7429377f/Object_3\",\"isIntegrated\":false,\"linkId\":\"Link17\"},{\"id\":\"Class27\",\"iri\":\"http://www.essi.upc.edu/DTIM/NextiaDI/DataSource/Schema/38530e7457fd4c27ba2fe6ba7429377f/Object_3\",\"iriType\":\"http://www.w3.org/2000/01/rdf-schema#Class\",\"shortType\":\"rdfs:Class\",\"type\":\"class\",\"label\":\"place\",\"domain\":\"\",\"range\":\"\",\"isIntegrated\":false},{\"id\":\"Class28\",\"iri\":\"http://www.essi.upc.edu/DTIM/NextiaDI/DataSource/Schema/38530e7457fd4c27ba2fe6ba7429377f/totalWorks\",\"iriType\":\"http://www.w3.org/1999/02/22-rdf-syntax-ns#Property\",\"shortType\":\"rdf:Property\",\"type\":\"datatype\",\"label\":\"totalWorks\",\"domain\":\"http://www.essi.upc.edu/DTIM/NextiaDI/DataSource/Schema/38530e7457fd4c27ba2fe6ba7429377f/Object_1\",\"range\":\"http://www.w3.org/2001/XMLSchema#int\",\"isIntegrated\":false,\"linkId\":\"Link18\"},{\"id\":\"Class29\",\"iri\":\"http://www.essi.upc.edu/DTIM/NextiaDI/DataSource/Schema/38530e7457fd4c27ba2fe6ba7429377f/name4\",\"iriType\":\"http://www.w3.org/1999/02/22-rdf-syntax-ns#Property\",\"shortType\":\"rdf:Property\",\"type\":\"datatype\",\"label\":\"name4\",\"domain\":\"http://www.essi.upc.edu/DTIM/NextiaDI/DataSource/Schema/38530e7457fd4c27ba2fe6ba7429377f/Object_8\",\"range\":\"http://www.w3.org/2001/XMLSchema#string\",\"isIntegrated\":false,\"linkId\":\"Link19\"},{\"id\":\"Class30\",\"iri\":\"http://www.essi.upc.edu/DTIM/NextiaDI/DataSource/Schema/38530e7457fd4c27ba2fe6ba7429377f/time\",\"iriType\":\"http://www.w3.org/1999/02/22-rdf-syntax-ns#Property\",\"shortType\":\"rdf:Property\",\"type\":\"object\",\"label\":\"has time\",\"domain\":\"http://www.essi.upc.edu/DTIM/NextiaDI/DataSource/Schema/38530e7457fd4c27ba2fe6ba7429377f/Object_2\",\"range\":\"http://www.essi.upc.edu/DTIM/NextiaDI/DataSource/Schema/38530e7457fd4c27ba2fe6ba7429377f/Object_4\",\"isIntegrated\":false,\"linkId\":\"Link20\"},{\"id\":\"Class31\",\"iri\":\"http://www.essi.upc.edu/DTIM/NextiaDI/DataSource/Schema/38530e7457fd4c27ba2fe6ba7429377f/date\",\"iriType\":\"http://www.w3.org/1999/02/22-rdf-syntax-ns#Property\",\"shortType\":\"rdf:Property\",\"type\":\"datatype\",\"label\":\"date\",\"domain\":\"http://www.essi.upc.edu/DTIM/NextiaDI/DataSource/Schema/38530e7457fd4c27ba2fe6ba7429377f/Object_1\",\"range\":\"http://www.w3.org/2001/XMLSchema#string\",\"isIntegrated\":false,\"linkId\":\"Link21\"},{\"id\":\"Class32\",\"iri\":\"http://www.essi.upc.edu/DTIM/NextiaDI/DataSource/Schema/38530e7457fd4c27ba2fe6ba7429377f/activePlaceCount\",\"iriType\":\"http://www.w3.org/1999/02/22-rdf-syntax-ns#Property\",\"shortType\":\"rdf:Property\",\"type\":\"datatype\",\"label\":\"activePlaceCount\",\"domain\":\"http://www.essi.upc.edu/DTIM/NextiaDI/DataSource/Schema/38530e7457fd4c27ba2fe6ba7429377f/Object_1\",\"range\":\"http://www.w3.org/2001/XMLSchema#int\",\"isIntegrated\":false,\"linkId\":\"Link22\"},{\"id\":\"Class33\",\"iri\":\"http://www.essi.upc.edu/DTIM/NextiaDI/DataSource/Schema/38530e7457fd4c27ba2fe6ba7429377f/birthYear\",\"iriType\":\"http://www.w3.org/1999/02/22-rdf-syntax-ns#Property\",\"shortType\":\"rdf:Property\",\"type\":\"datatype\",\"label\":\"birthYear\",\"domain\":\"http://www.essi.upc.edu/DTIM/NextiaDI/DataSource/Schema/38530e7457fd4c27ba2fe6ba7429377f/Object_1\",\"range\":\"http://www.w3.org/2001/XMLSchema#int\",\"isIntegrated\":false,\"linkId\":\"Link23\"},{\"id\":\"Class34\",\"iri\":\"http://www.essi.upc.edu/DTIM/NextiaDI/DataSource/Schema/38530e7457fd4c27ba2fe6ba7429377f/era\",\"iriType\":\"http://www.w3.org/1999/02/22-rdf-syntax-ns#Property\",\"shortType\":\"rdf:Property\",\"type\":\"object\",\"label\":\"has era\",\"domain\":\"http://www.essi.upc.edu/DTIM/NextiaDI/DataSource/Schema/38530e7457fd4c27ba2fe6ba7429377f/Object_8\",\"range\":\"http://www.essi.upc.edu/DTIM/NextiaDI/DataSource/Schema/38530e7457fd4c27ba2fe6ba7429377f/Object_9\",\"isIntegrated\":false,\"linkId\":\"Link24\"},{\"id\":\"Class35\",\"iri\":\"http://www.essi.upc.edu/DTIM/NextiaDI/DataSource/Schema/38530e7457fd4c27ba2fe6ba7429377f/startLetter\",\"iriType\":\"http://www.w3.org/1999/02/22-rdf-syntax-ns#Property\",\"shortType\":\"rdf:Property\",\"type\":\"datatype\",\"label\":\"startLetter\",\"domain\":\"http://www.essi.upc.edu/DTIM/NextiaDI/DataSource/Schema/38530e7457fd4c27ba2fe6ba7429377f/Object_1\",\"range\":\"http://www.w3.org/2001/XMLSchema#string\",\"isIntegrated\":false,\"linkId\":\"Link25\"},{\"id\":\"Class36\",\"iri\":\"http://www.essi.upc.edu/DTIM/NextiaDI/DataSource/Schema/38530e7457fd4c27ba2fe6ba7429377f/placeType2\",\"iriType\":\"http://www.w3.org/1999/02/22-rdf-syntax-ns#Property\",\"shortType\":\"rdf:Property\",\"type\":\"datatype\",\"label\":\"placeType2\",\"domain\":\"http://www.essi.upc.edu/DTIM/NextiaDI/DataSource/Schema/38530e7457fd4c27ba2fe6ba7429377f/Object_6\",\"range\":\"http://www.w3.org/2001/XMLSchema#string\",\"isIntegrated\":false,\"linkId\":\"Link26\"},{\"id\":\"Class37\",\"iri\":\"http://www.essi.upc.edu/DTIM/NextiaDI/DataSource/Schema/38530e7457fd4c27ba2fe6ba7429377f/url\",\"iriType\":\"http://www.w3.org/1999/02/22-rdf-syntax-ns#Property\",\"shortType\":\"rdf:Property\",\"type\":\"datatype\",\"label\":\"url\",\"domain\":\"http://www.essi.upc.edu/DTIM/NextiaDI/DataSource/Schema/38530e7457fd4c27ba2fe6ba7429377f/Object_1\",\"range\":\"http://www.w3.org/2001/XMLSchema#string\",\"isIntegrated\":false,\"linkId\":\"Link27\"},{\"id\":\"Class38\",\"iri\":\"http://www.essi.upc.edu/DTIM/NextiaDI/DataSource/Schema/38530e7457fd4c27ba2fe6ba7429377f/movements\",\"iriType\":\"http://www.w3.org/1999/02/22-rdf-syntax-ns#Property\",\"shortType\":\"rdf:Property\",\"type\":\"object\",\"label\":\"has movements\",\"domain\":\"http://www.essi.upc.edu/DTIM/NextiaDI/DataSource/Schema/38530e7457fd4c27ba2fe6ba7429377f/Object_1\",\"range\":\"http://www.essi.upc.edu/DTIM/NextiaDI/DataSource/Schema/38530e7457fd4c27ba2fe6ba7429377f/Object_8\",\"isIntegrated\":false,\"linkId\":\"Link28\"},{\"id\":\"Class39\",\"iri\":\"http://www.essi.upc.edu/DTIM/NextiaDI/DataSource/Schema/38530e7457fd4c27ba2fe6ba7429377f/placeName2\",\"iriType\":\"http://www.w3.org/1999/02/22-rdf-syntax-ns#Property\",\"shortType\":\"rdf:Property\",\"type\":\"datatype\",\"label\":\"placeName2\",\"domain\":\"http://www.essi.upc.edu/DTIM/NextiaDI/DataSource/Schema/38530e7457fd4c27ba2fe6ba7429377f/Object_6\",\"range\":\"http://www.w3.org/2001/XMLSchema#string\",\"isIntegrated\":false,\"linkId\":\"Link29\"},{\"id\":\"Class40\",\"iri\":\"http://www.essi.upc.edu/DTIM/NextiaDI/DataSource/Schema/38530e7457fd4c27ba2fe6ba7429377f/time2\",\"iriType\":\"http://www.w3.org/1999/02/22-rdf-syntax-ns#Property\",\"shortType\":\"rdf:Property\",\"type\":\"object\",\"label\":\"has time2\",\"domain\":\"http://www.essi.upc.edu/DTIM/NextiaDI/DataSource/Schema/38530e7457fd4c27ba2fe6ba7429377f/Object_5\",\"range\":\"http://www.essi.upc.edu/DTIM/NextiaDI/DataSource/Schema/38530e7457fd4c27ba2fe6ba7429377f/Object_7\",\"isIntegrated\":false,\"linkId\":\"Link30\"},{\"id\":\"Datatype41\",\"iri\":\"http://www.w3.org/2001/XMLSchema#int\",\"shortType\":\"xsd:String\",\"type\":\"xsdType\",\"label\":\"int\",\"domain\":\"\",\"range\":\"\",\"isIntegrated\":false},{\"id\":\"Datatype42\",\"iri\":\"http://www.w3.org/2001/XMLSchema#int\",\"shortType\":\"xsd:String\",\"type\":\"xsdType\",\"label\":\"int\",\"domain\":\"\",\"range\":\"\",\"isIntegrated\":false},{\"id\":\"Datatype43\",\"iri\":\"http://www.w3.org/2001/XMLSchema#string\",\"shortType\":\"xsd:String\",\"type\":\"xsdType\",\"label\":\"string\",\"domain\":\"\",\"range\":\"\",\"isIntegrated\":false},{\"id\":\"Datatype44\",\"iri\":\"http://www.w3.org/2001/XMLSchema#int\",\"shortType\":\"xsd:String\",\"type\":\"xsdType\",\"label\":\"int\",\"domain\":\"\",\"range\":\"\",\"isIntegrated\":false},{\"id\":\"Datatype45\",\"iri\":\"http://www.w3.org/2001/XMLSchema#string\",\"shortType\":\"xsd:String\",\"type\":\"xsdType\",\"label\":\"string\",\"domain\":\"\",\"range\":\"\",\"isIntegrated\":false},{\"id\":\"Datatype46\",\"iri\":\"http://www.w3.org/2001/XMLSchema#string\",\"shortType\":\"xsd:String\",\"type\":\"xsdType\",\"label\":\"string\",\"domain\":\"\",\"range\":\"\",\"isIntegrated\":false},{\"id\":\"Datatype47\",\"iri\":\"http://www.w3.org/2001/XMLSchema#string\",\"shortType\":\"xsd:String\",\"type\":\"xsdType\",\"label\":\"string\",\"domain\":\"\",\"range\":\"\",\"isIntegrated\":false},{\"id\":\"Datatype48\",\"iri\":\"http://www.w3.org/2001/XMLSchema#string\",\"shortType\":\"xsd:String\",\"type\":\"xsdType\",\"label\":\"string\",\"domain\":\"\",\"range\":\"\",\"isIntegrated\":false},{\"id\":\"Datatype49\",\"iri\":\"http://www.w3.org/2001/XMLSchema#int\",\"shortType\":\"xsd:String\",\"type\":\"xsdType\",\"label\":\"int\",\"domain\":\"\",\"range\":\"\",\"isIntegrated\":false},{\"id\":\"Datatype50\",\"iri\":\"http://www.w3.org/2001/XMLSchema#string\",\"shortType\":\"xsd:String\",\"type\":\"xsdType\",\"label\":\"string\",\"domain\":\"\",\"range\":\"\",\"isIntegrated\":false},{\"id\":\"Datatype51\",\"iri\":\"http://www.w3.org/2001/XMLSchema#string\",\"shortType\":\"xsd:String\",\"type\":\"xsdType\",\"label\":\"string\",\"domain\":\"\",\"range\":\"\",\"isIntegrated\":false},{\"id\":\"Datatype52\",\"iri\":\"http://www.w3.org/2001/XMLSchema#int\",\"shortType\":\"xsd:String\",\"type\":\"xsdType\",\"label\":\"int\",\"domain\":\"\",\"range\":\"\",\"isIntegrated\":false},{\"id\":\"Datatype53\",\"iri\":\"http://www.w3.org/2001/XMLSchema#string\",\"shortType\":\"xsd:String\",\"type\":\"xsdType\",\"label\":\"string\",\"domain\":\"\",\"range\":\"\",\"isIntegrated\":false},{\"id\":\"Datatype54\",\"iri\":\"http://www.w3.org/2001/XMLSchema#int\",\"shortType\":\"xsd:String\",\"type\":\"xsdType\",\"label\":\"int\",\"domain\":\"\",\"range\":\"\",\"isIntegrated\":false},{\"id\":\"Datatype55\",\"iri\":\"http://www.w3.org/2001/XMLSchema#string\",\"shortType\":\"xsd:String\",\"type\":\"xsdType\",\"label\":\"string\",\"domain\":\"\",\"range\":\"\",\"isIntegrated\":false},{\"id\":\"Datatype56\",\"iri\":\"http://www.w3.org/2001/XMLSchema#string\",\"shortType\":\"xsd:String\",\"type\":\"xsdType\",\"label\":\"string\",\"domain\":\"\",\"range\":\"\",\"isIntegrated\":false},{\"id\":\"Datatype57\",\"iri\":\"http://www.w3.org/2001/XMLSchema#int\",\"shortType\":\"xsd:String\",\"type\":\"xsdType\",\"label\":\"int\",\"domain\":\"\",\"range\":\"\",\"isIntegrated\":false},{\"id\":\"Datatype58\",\"iri\":\"http://www.w3.org/2001/XMLSchema#int\",\"shortType\":\"xsd:String\",\"type\":\"xsdType\",\"label\":\"int\",\"domain\":\"\",\"range\":\"\",\"isIntegrated\":false},{\"id\":\"Datatype59\",\"iri\":\"http://www.w3.org/2001/XMLSchema#string\",\"shortType\":\"xsd:String\",\"type\":\"xsdType\",\"label\":\"string\",\"domain\":\"\",\"range\":\"\",\"isIntegrated\":false},{\"id\":\"Datatype60\",\"iri\":\"http://www.w3.org/2001/XMLSchema#string\",\"shortType\":\"xsd:String\",\"type\":\"xsdType\",\"label\":\"string\",\"domain\":\"\",\"range\":\"\",\"isIntegrated\":false},{\"id\":\"Datatype61\",\"iri\":\"http://www.w3.org/2001/XMLSchema#string\",\"shortType\":\"xsd:String\",\"type\":\"xsdType\",\"label\":\"string\",\"domain\":\"\",\"range\":\"\",\"isIntegrated\":false},{\"id\":\"Datatype62\",\"iri\":\"http://www.w3.org/2001/XMLSchema#string\",\"shortType\":\"xsd:String\",\"type\":\"xsdType\",\"label\":\"string\",\"domain\":\"\",\"range\":\"\",\"isIntegrated\":false}],\"links\":[{\"id\":\"Link1\",\"nodeId\":\"Class1\",\"source\":\"Class25\",\"target\":\"Datatype41\",\"label\":\"id\"},{\"id\":\"Link2\",\"nodeId\":\"Class2\",\"source\":\"Class4\",\"target\":\"Datatype42\",\"label\":\"id3\"},{\"id\":\"Link3\",\"nodeId\":\"Class5\",\"source\":\"Class25\",\"target\":\"Class18\",\"label\":\"has death\"},{\"id\":\"Link4\",\"nodeId\":\"Class6\",\"source\":\"Class25\",\"target\":\"Class8\",\"label\":\"has birth\"},{\"id\":\"Link5\",\"nodeId\":\"Class7\",\"source\":\"Class17\",\"target\":\"Datatype43\",\"label\":\"name3\"},{\"id\":\"Link6\",\"nodeId\":\"Class10\",\"source\":\"Class9\",\"target\":\"Datatype44\",\"label\":\"startYear\"},{\"id\":\"Link7\",\"nodeId\":\"Class11\",\"source\":\"Class25\",\"target\":\"Datatype45\",\"label\":\"mda\"},{\"id\":\"Link8\",\"nodeId\":\"Class12\",\"source\":\"Class27\",\"target\":\"Datatype46\",\"label\":\"name\"},{\"id\":\"Link9\",\"nodeId\":\"Class13\",\"source\":\"Class27\",\"target\":\"Datatype47\",\"label\":\"placeType\"},{\"id\":\"Link10\",\"nodeId\":\"Class15\",\"source\":\"Class18\",\"target\":\"Class3\",\"label\":\"has place2\"},{\"id\":\"Link11\",\"nodeId\":\"Class16\",\"source\":\"Class25\",\"target\":\"Datatype48\",\"label\":\"fc\"},{\"id\":\"Link12\",\"nodeId\":\"Class19\",\"source\":\"Class17\",\"target\":\"Datatype49\",\"label\":\"id2\"},{\"id\":\"Link13\",\"nodeId\":\"Class20\",\"source\":\"Class25\",\"target\":\"Datatype50\",\"label\":\"gender\"},{\"id\":\"Link14\",\"nodeId\":\"Class22\",\"source\":\"Class27\",\"target\":\"Datatype51\",\"label\":\"placeName\"},{\"id\":\"Link15\",\"nodeId\":\"Class23\",\"source\":\"Class21\",\"target\":\"Datatype52\",\"label\":\"startYear2\"},{\"id\":\"Link16\",\"nodeId\":\"Class24\",\"source\":\"Class3\",\"target\":\"Datatype53\",\"label\":\"name2\"},{\"id\":\"Link17\",\"nodeId\":\"Class26\",\"source\":\"Class8\",\"target\":\"Class27\",\"label\":\"has place\"},{\"id\":\"Link18\",\"nodeId\":\"Class28\",\"source\":\"Class25\",\"target\":\"Datatype54\",\"label\":\"totalWorks\"},{\"id\":\"Link19\",\"nodeId\":\"Class29\",\"source\":\"Class4\",\"target\":\"Datatype55\",\"label\":\"name4\"},{\"id\":\"Link20\",\"nodeId\":\"Class30\",\"source\":\"Class8\",\"target\":\"Class9\",\"label\":\"has time\"},{\"id\":\"Link21\",\"nodeId\":\"Class31\",\"source\":\"Class25\",\"target\":\"Datatype56\",\"label\":\"date\"},{\"id\":\"Link22\",\"nodeId\":\"Class32\",\"source\":\"Class25\",\"target\":\"Datatype57\",\"label\":\"activePlaceCount\"},{\"id\":\"Link23\",\"nodeId\":\"Class33\",\"source\":\"Class25\",\"target\":\"Datatype58\",\"label\":\"birthYear\"},{\"id\":\"Link24\",\"nodeId\":\"Class34\",\"source\":\"Class4\",\"target\":\"Class17\",\"label\":\"has era\"},{\"id\":\"Link25\",\"nodeId\":\"Class35\",\"source\":\"Class25\",\"target\":\"Datatype59\",\"label\":\"startLetter\"},{\"id\":\"Link26\",\"nodeId\":\"Class36\",\"source\":\"Class3\",\"target\":\"Datatype60\",\"label\":\"placeType2\"},{\"id\":\"Link27\",\"nodeId\":\"Class37\",\"source\":\"Class25\",\"target\":\"Datatype61\",\"label\":\"url\"},{\"id\":\"Link28\",\"nodeId\":\"Class38\",\"source\":\"Class25\",\"target\":\"Class4\",\"label\":\"has movements\"},{\"id\":\"Link29\",\"nodeId\":\"Class39\",\"source\":\"Class3\",\"target\":\"Datatype62\",\"label\":\"placeName2\"},{\"id\":\"Link30\",\"nodeId\":\"Class40\",\"source\":\"Class18\",\"target\":\"Class21\",\"label\":\"has time2\"}]}" ;
+        nextiaDataSource:hasFileName   "vsi7yOZ9DZMR9HE1_tate_artist_picasso-pablo-1767.json" ;
+        nextiaDataSource:hasFileSize   "977bytes" ;
+        nextiaDataSource:hasProjectID  "e3ddf3d7b01140e0b3f3ae9abead5420" ;
+        nextiaDataSource:id            "38530e7457fd4c27ba2fe6ba7429377f" ;
+        nextiaDataSource:path          "/Users/javierflores/Documents/upc/projects/newODIN/api/landing_zone/persistent/ds/vsi7yOZ9DZMR9HE1_tate_artist_picasso-pablo-1767.json" ;
+        nextiaDataSource:wrapper       "SELECT date,gender,birth.time.startYear,startLetter,mda,activePlaceCount,death.place.placeName AS placeName2,url,birth.place.placeType,movements_view.name AS name4,death.time.startYear AS startYear2,movements_view.era.name AS name3,birthYear,movements_view.era.id AS id2,birth.place.name,movements_view.id AS id3,id,death.place.name AS name2,death.place.placeType AS placeType2,birth.place.placeName,fc,totalWorks FROM artist LATERAL VIEW explode(movements) AS movements_view" .
+
+nextiaSchema:birthYear
+        rdf:type     rdf:Property ;
+        rdfs:domain  <http://www.essi.upc.edu/DTIM/NextiaDI/artist> ;
+        rdfs:label   "birthYear" ;
+        rdfs:range   xsd:int .
+
+<http://www.essi.upc.edu/DTIM/NextiaDI/DataSource/Schema/bac08e07e9794e5495e19ee9287816e0/catalogueGroup>
+        rdf:type     rdf:Property ;
+        rdfs:domain  <http://www.essi.upc.edu/DTIM/NextiaDI/DataSource/Schema/bac08e07e9794e5495e19ee9287816e0/Object_1> ;
+        rdfs:label   "has catalogueGroup" ;
+        rdfs:range   <http://www.essi.upc.edu/DTIM/NextiaDI/DataSource/Schema/bac08e07e9794e5495e19ee9287816e0/Object_2> .
+
+nextiaSchema:fc  rdfs:subClassOf  <http://schema.org/identifier> .
+
+<http://www.essi.upc.edu/DTIM/NextiaDI/DataSource/Schema/bac08e07e9794e5495e19ee9287816e0/fc>
+        rdfs:subClassOf  <http://schema.org/identifier> .
+
+<http://www.essi.upc.edu/DTIM/NextiaDI/DataSource/Schema/bac08e07e9794e5495e19ee9287816e0/birthYear>
+        rdf:type     rdf:Property ;
+        rdfs:domain  <http://www.essi.upc.edu/DTIM/NextiaDI/artist> ;
+        rdfs:label   "birthYear" ;
+        rdfs:range   xsd:int .
+
+<http://www.essi.upc.edu/DTIM/NextiaDI/DataSource/Schema/bac08e07e9794e5495e19ee9287816e0/contributorCount>
+        rdf:type     rdf:Property ;
+        rdfs:domain  <http://www.essi.upc.edu/DTIM/NextiaDI/DataSource/Schema/bac08e07e9794e5495e19ee9287816e0/Object_1> ;
+        rdfs:label   "contributorCount" ;
+        rdfs:range   xsd:int .
+
+<http://www.essi.upc.edu/DTIM/NextiaDI/DataSource/Schema/bac08e07e9794e5495e19ee9287816e0/date>
+        rdfs:subClassOf  <http://schema.org/identifier> .
+
+nextiaSchema:placeName
+        rdf:type     rdf:Property ;
+        rdfs:domain  nextiaSchema:Object_3 ;
+        rdfs:label   "placeName" ;
+        rdfs:range   xsd:string .
+
+<http://www.essi.upc.edu/DTIM/NextiaDI/DataSource/Schema/bac08e07e9794e5495e19ee9287816e0/startLetter>
+        rdf:type     rdf:Property ;
+        rdfs:domain  <http://www.essi.upc.edu/DTIM/NextiaDI/artist> ;
+        rdfs:label   "startLetter" ;
+        rdfs:range   xsd:string .
+
+<http://www.essi.upc.edu/DTIM/NextiaDI/gender_gender>
+        rdf:type     <http://www.essi.upc.edu/DTIM/NextiaDI/IntegratedDatatypeProperty> ;
+        rdfs:domain  <http://www.essi.upc.edu/DTIM/NextiaDI/artist> ;
+        rdfs:range   xsd:string .
+
+<http://www.essi.upc.edu/DTIM/NextiaDI/DataSource/Schema/bac08e07e9794e5495e19ee9287816e0/id2>
+        rdf:type     rdf:Property ;
+        rdfs:domain  <http://www.essi.upc.edu/DTIM/NextiaDI/DataSource/Schema/bac08e07e9794e5495e19ee9287816e0/Object_1> ;
+        rdfs:label   "id2" ;
+        rdfs:range   xsd:int .
+
+<http://www.essi.upc.edu/DTIM/NextiaDI/DataSource/Schema/bac08e07e9794e5495e19ee9287816e0/inscription>
+        rdf:type     rdf:Property ;
+        rdfs:domain  <http://www.essi.upc.edu/DTIM/NextiaDI/DataSource/Schema/bac08e07e9794e5495e19ee9287816e0/Object_1> ;
+        rdfs:label   "inscription" ;
+        rdfs:range   xsd:string .
+
+nextiaSchema:Object_6
+        rdf:type    rdfs:Class ;
+        rdfs:label  "place" .
+
+<http://www.essi.upc.edu/DTIM/NextiaDI/DataSource/Schema/bac08e07e9794e5495e19ee9287816e0/foreignTitle>
+        rdf:type     rdf:Property ;
+        rdfs:domain  <http://www.essi.upc.edu/DTIM/NextiaDI/DataSource/Schema/bac08e07e9794e5495e19ee9287816e0/Object_1> ;
+        rdfs:label   "foreignTitle" ;
+        rdfs:range   xsd:string .
+
+nextiaSchema:totalWorks
+        rdf:type     rdf:Property ;
+        rdfs:domain  <http://www.essi.upc.edu/DTIM/NextiaDI/artist> ;
+        rdfs:label   "totalWorks" ;
+        rdfs:range   xsd:int .
+
+<http://www.essi.upc.edu/DTIM/NextiaDI/DataSource/Schema/bac08e07e9794e5495e19ee9287816e0/movementCount>
+        rdf:type     rdf:Property ;
+        rdfs:domain  <http://www.essi.upc.edu/DTIM/NextiaDI/DataSource/Schema/bac08e07e9794e5495e19ee9287816e0/Object_1> ;
+        rdfs:label   "movementCount" ;
+        rdfs:range   xsd:int .
+
+<http://www.essi.upc.edu/DTIM/NextiaDI/DataSource/Schema/bac08e07e9794e5495e19ee9287816e0/url>
+        rdf:type     rdf:Property ;
+        rdfs:domain  <http://www.essi.upc.edu/DTIM/NextiaDI/DataSource/Schema/bac08e07e9794e5495e19ee9287816e0/Object_1> ;
+        rdfs:label   "url" ;
+        rdfs:range   xsd:string .
+
+<http://www.essi.upc.edu/DTIM/NextiaDI/DataSource/Schema/bac08e07e9794e5495e19ee9287816e0/Object_4>
+        rdf:type    rdfs:Class ;
+        rdfs:label  "dateRange" .
+
+nextiaSchema:place  rdf:type  rdf:Property ;
+        rdfs:domain  nextiaSchema:Object_2 ;
+        rdfs:label   "has place" ;
+        rdfs:range   nextiaSchema:Object_3 .
+
+<http://www.essi.upc.edu/DTIM/NextiaDI/DataSource/Schema/bac08e07e9794e5495e19ee9287816e0/gender>
+        rdfs:subClassOf  <http://schema.org/identifier> .
+
+<http://www.essi.upc.edu/DTIM/NextiaDI/DataSource/Schema/bac08e07e9794e5495e19ee9287816e0/classification>
+        rdf:type     rdf:Property ;
+        rdfs:domain  <http://www.essi.upc.edu/DTIM/NextiaDI/DataSource/Schema/bac08e07e9794e5495e19ee9287816e0/Object_1> ;
+        rdfs:label   "classification" ;
+        rdfs:range   xsd:string .
+
+nextiaSchema:startYear
+        rdf:type     rdf:Property ;
+        rdfs:domain  nextiaSchema:Object_4 ;
+        rdfs:label   "startYear" ;
+        rdfs:range   xsd:int .
+
+<http://www.essi.upc.edu/DTIM/NextiaDI/DataSource/Schema/bac08e07e9794e5495e19ee9287816e0/medium>
+        rdf:type     rdf:Property ;
+        rdfs:domain  <http://www.essi.upc.edu/DTIM/NextiaDI/DataSource/Schema/bac08e07e9794e5495e19ee9287816e0/Object_1> ;
+        rdfs:label   "medium" ;
+        rdfs:range   xsd:string .
+
+nextiaSchema:placeType2
+        rdf:type     rdf:Property ;
+        rdfs:domain  nextiaSchema:Object_6 ;
+        rdfs:label   "placeType2" ;
+        rdfs:range   xsd:string .
+
+<http://www.essi.upc.edu/DTIM/NextiaDI/fc_fc>
+        rdf:type     <http://www.essi.upc.edu/DTIM/NextiaDI/IntegratedDatatypeProperty> ;
+        rdfs:domain  <http://www.essi.upc.edu/DTIM/NextiaDI/artist> ;
+        rdfs:range   xsd:string .
+
+<http://www.essi.upc.edu/DTIM/NextiaDI/DataSource/Schema/bac08e07e9794e5495e19ee9287816e0/acno>
+        rdf:type     rdf:Property ;
+        rdfs:domain  <http://www.essi.upc.edu/DTIM/NextiaDI/DataSource/Schema/bac08e07e9794e5495e19ee9287816e0/Object_1> ;
+        rdfs:label   "acno" ;
+        rdfs:range   xsd:string .

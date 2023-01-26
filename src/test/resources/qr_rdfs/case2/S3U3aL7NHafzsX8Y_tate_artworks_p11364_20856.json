@@ -1,0 +1,44 @@
+{
+    "acno": "P11364", 
+    "acquisitionYear": 1994, 
+    "all_artists": "Pablo Picasso", 
+    "catalogueGroup": {}, 
+    "classification": "on paper, print", 
+    "contributorCount": 1, 
+    "contributors": [
+      {
+        "birthYear": 1881, 
+        "date": "1881\u20131973", 
+        "displayOrder": 1, 
+        "fc": "Pablo Picasso", 
+        "gender": "Male", 
+        "id": 1767, 
+        "mda": "Picasso, Pablo", 
+        "role": "artist", 
+        "startLetter": "P"
+      }
+    ], 
+    "creditLine": "Bequeathed by Elly Kahnweiler 1991 to form part of the gift of Gustav and Elly Kahnweiler, accessioned 1994", 
+    "dateRange": {
+      "endYear": 1945, 
+      "startYear": 1945, 
+      "text": "1945"
+    }, 
+    "dateText": "1945", 
+    "depth": "", 
+    "dimensions": "image: 307 x 227 mm", 
+    "foreignTitle": "T\u00eate de jeune gar\u00e7on", 
+    "groupTitle": null, 
+    "height": "227", 
+    "id": 20856, 
+    "inscription": null, 
+    "medium": "Lithograph on paper", 
+    "movementCount": 0, 
+    "subjectCount": 6, 
+    "thumbnailCopyright": "\u00a9 Succession Picasso/DACS 2014", 
+    "thumbnailUrl": "http://www.tate.org.uk/art/images/work/P/P11/P11364_8.jpg", 
+    "title": "Head of a Young Boy", 
+    "units": "mm", 
+    "url": "http://www.tate.org.uk/art/artworks/picasso-head-of-a-young-boy-p11364", 
+    "width": "307"
+  }

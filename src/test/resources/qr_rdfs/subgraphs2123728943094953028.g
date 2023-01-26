@@ -12,13 +12,13 @@
         rdfs:subClassOf  <http://schema.org/identifier> .
 
 nextiaDI:identifier_idObject
-        rdf:type     nextiaDI:IntegrationDProperty ;
+        rdf:type     nextiaDI:IntegratedDatatypeProperty ;
         rdfs:domain  nextiaDI:artworks_collections ;
         rdfs:range   xsd:string .
 
-nextiaDI:title_title  rdf:type  nextiaDI:IntegrationDProperty ;
+nextiaDI:title_title  rdf:type  nextiaDI:IntegratedDatatypeProperty ;
         rdfs:domain  nextiaDI:artworks_collections ;
         rdfs:range   xsd:string .
 
 nextiaDI:artworks_collections
-        rdf:type  nextiaDI:IntegrationClass .
+        rdf:type  nextiaDI:IntegratedClass .
