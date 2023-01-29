@@ -1,0 +1,40 @@
+@prefix json:             <https://www.essi.upc.edu/dtim/json-metamodel#> .
+@prefix nextiaDataSource: <http://www.essi.upc.edu/DTIM/NextiaDI/DataSource/> .
+@prefix nextiaSchema:     <http://www.essi.upc.edu/DTIM/NextiaDI/DataSource/Schema/43026f4b9419414aa42c5f6f019081ed/> .
+@prefix rdf:              <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:             <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd:              <http://www.w3.org/2001/XMLSchema#> .
+
+nextiaSchema:Object_1
+        rdf:type    rdfs:Class ;
+        rdfs:label  "artwork" .
+
+nextiaSchema:medium  rdf:type  rdf:Property ;
+        rdfs:domain  nextiaSchema:Object_1 ;
+        rdfs:label   "medium" ;
+        rdfs:range   xsd:string .
+
+nextiaSchema:displayed_in
+        rdf:type     rdf:Property ;
+        rdfs:domain  nextiaSchema:Object_1 ;
+        rdfs:label   "displayed_in" ;
+        rdfs:range   xsd:string .
+
+nextiaSchema:name2  rdf:type  rdf:Property ;
+        rdfs:domain  nextiaSchema:Object_1 ;
+        rdfs:label   "name2" ;
+        rdfs:range   xsd:string .
+
+nextiaDataSource:43026f4b9419414aa42c5f6f019081ed
+        rdf:type                       <http://www.essi.upc.edu/DTIM/NextiaDI/DataSource> ;
+        rdfs:label                     "artwork" ;
+        nextiaDataSource:description   "" ;
+        nextiaDataSource:format        "JSON" ;
+        nextiaDataSource:graphicalGraph
+                "{\"nodes\":[{\"id\":\"Class1\",\"iri\":\"http://www.essi.upc.edu/DTIM/NextiaDI/DataSource/Schema/43026f4b9419414aa42c5f6f019081ed/name2\",\"iriType\":\"http://www.w3.org/1999/02/22-rdf-syntax-ns#Property\",\"shortType\":\"rdf:Property\",\"type\":\"datatype\",\"label\":\"name2\",\"domain\":\"http://www.essi.upc.edu/DTIM/NextiaDI/DataSource/Schema/43026f4b9419414aa42c5f6f019081ed/Object_1\",\"range\":\"http://www.w3.org/2001/XMLSchema#string\",\"isIntegrated\":false,\"linkId\":\"Link1\"},{\"id\":\"Class3\",\"iri\":\"http://www.essi.upc.edu/DTIM/NextiaDI/DataSource/Schema/43026f4b9419414aa42c5f6f019081ed/displayed_in\",\"iriType\":\"http://www.w3.org/1999/02/22-rdf-syntax-ns#Property\",\"shortType\":\"rdf:Property\",\"type\":\"datatype\",\"label\":\"displayed_in\",\"domain\":\"http://www.essi.upc.edu/DTIM/NextiaDI/DataSource/Schema/43026f4b9419414aa42c5f6f019081ed/Object_1\",\"range\":\"http://www.w3.org/2001/XMLSchema#string\",\"isIntegrated\":false,\"linkId\":\"Link2\"},{\"id\":\"Class4\",\"iri\":\"http://www.essi.upc.edu/DTIM/NextiaDI/DataSource/Schema/43026f4b9419414aa42c5f6f019081ed/Object_1\",\"iriType\":\"http://www.w3.org/2000/01/rdf-schema#Class\",\"shortType\":\"rdfs:Class\",\"type\":\"class\",\"label\":\"artwork\",\"domain\":\"\",\"range\":\"\",\"isIntegrated\":false},{\"id\":\"Class5\",\"iri\":\"http://www.essi.upc.edu/DTIM/NextiaDI/DataSource/Schema/43026f4b9419414aa42c5f6f019081ed/medium\",\"iriType\":\"http://www.w3.org/1999/02/22-rdf-syntax-ns#Property\",\"shortType\":\"rdf:Property\",\"type\":\"datatype\",\"label\":\"medium\",\"domain\":\"http://www.essi.upc.edu/DTIM/NextiaDI/DataSource/Schema/43026f4b9419414aa42c5f6f019081ed/Object_1\",\"range\":\"http://www.w3.org/2001/XMLSchema#string\",\"isIntegrated\":false,\"linkId\":\"Link3\"},{\"id\":\"Datatype6\",\"iri\":\"http://www.w3.org/2001/XMLSchema#string\",\"shortType\":\"xsd:String\",\"type\":\"xsdType\",\"label\":\"string\",\"domain\":\"\",\"range\":\"\",\"isIntegrated\":false},{\"id\":\"Datatype7\",\"iri\":\"http://www.w3.org/2001/XMLSchema#string\",\"shortType\":\"xsd:String\",\"type\":\"xsdType\",\"label\":\"string\",\"domain\":\"\",\"range\":\"\",\"isIntegrated\":false},{\"id\":\"Datatype8\",\"iri\":\"http://www.w3.org/2001/XMLSchema#string\",\"shortType\":\"xsd:String\",\"type\":\"xsdType\",\"label\":\"string\",\"domain\":\"\",\"range\":\"\",\"isIntegrated\":false}],\"links\":[{\"id\":\"Link1\",\"nodeId\":\"Class1\",\"source\":\"Class4\",\"target\":\"Datatype6\",\"label\":\"name2\"},{\"id\":\"Link2\",\"nodeId\":\"Class3\",\"source\":\"Class4\",\"target\":\"Datatype7\",\"label\":\"displayed_in\"},{\"id\":\"Link3\",\"nodeId\":\"Class5\",\"source\":\"Class4\",\"target\":\"Datatype8\",\"label\":\"medium\"}]}" ;
+        nextiaDataSource:hasFileName   "OqpDoTlh8aDxdthj_artwork.json" ;
+        nextiaDataSource:hasFileSize   "70bytes" ;
+        nextiaDataSource:hasProjectID  "e2fd221ae9024cedbad3a925314cf5d5" ;
+        nextiaDataSource:id            "43026f4b9419414aa42c5f6f019081ed" ;
+        nextiaDataSource:path          "/Users/javierflores/Documents/upc/projects/newODIN/api/landing_zone/temporal/ds/OqpDoTlh8aDxdthj_artwork.json" ;
+        nextiaDataSource:wrapper       "SELECT displayed_in,medium,name2 FROM artwork " .
