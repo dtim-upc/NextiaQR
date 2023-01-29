@@ -124,6 +124,8 @@ public class GraphOperations {
                 .replace(Namespaces.rdfs.val(), "")
                 .replace(Namespaces.owl.val(), "")
                 .replace(Namespaces.serginf.val(), "")
+                //TODO Obtain it from nextiadi
+                .replace("http://www.essi.upc.edu/DTIM/NextiaDI/DataSource/Schema/", "")
                 .replace(Namespaces.nextiaDataSource.val(), "")
                 .replace(Namespaces.nextiadi.val(), "");
     }

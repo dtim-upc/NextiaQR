@@ -205,7 +205,7 @@ public class NextiaQR_new {
             List<String> rows = df.toJSON().collectAsList();
             res.setColumns(col);
             res.setRows(rows);
-            df.show();
+           // df.show();
             return res;
         }
 
@@ -352,17 +352,17 @@ public class NextiaQR_new {
             case 4:
                 System.out.println("Option 1 – Join ODIN");
 
-                sourceGraphs.put("http://www.essi.upc.edu/DTIM/NextiaDI/DataSource/Schema/70ea6770f94745a98091d16810e391bb",
+                sourceGraphs.put("http://www.essi.upc.edu/DTIM/NextiaDI/DataSource/70ea6770f94745a98091d16810e391bb",
                         RDFDataMgr.loadModel("src/test/resources/qr_rdfs/pruebaODIN/source_1.ttl", Lang.TTL));
-                sourceGraphs.put("http://www.essi.upc.edu/DTIM/NextiaDI/DataSource/Schema/8f9df4709b1444f1834a5f2aa6f55d86",
+                sourceGraphs.put("http://www.essi.upc.edu/DTIM/NextiaDI/DataSource/8f9df4709b1444f1834a5f2aa6f55d86",
                         RDFDataMgr.loadModel("src/test/resources/qr_rdfs/pruebaODIN/source_2.ttl", Lang.TTL));
 
                 globalSchema = RDFDataMgr.loadModel("src/test/resources/qr_rdfs/pruebaODIN/globalSchema.ttl", Lang.TTL);
 
 
-                subgraphs.put("http://www.essi.upc.edu/DTIM/NextiaDI/DataSource/Schema/70ea6770f94745a98091d16810e391bb",
+                subgraphs.put("http://www.essi.upc.edu/DTIM/NextiaDI/DataSource/70ea6770f94745a98091d16810e391bb",
                         RDFDataMgr.loadModel("src/test/resources/qr_rdfs/pruebaODIN/subgraph_1.ttl", Lang.TTL));
-                subgraphs.put("http://www.essi.upc.edu/DTIM/NextiaDI/DataSource/Schema/8f9df4709b1444f1834a5f2aa6f55d86",
+                subgraphs.put("http://www.essi.upc.edu/DTIM/NextiaDI/DataSource/8f9df4709b1444f1834a5f2aa6f55d86",
                         RDFDataMgr.loadModel("src/test/resources/qr_rdfs/pruebaODIN/subgraph_2.ttl", Lang.TTL));
 
 
