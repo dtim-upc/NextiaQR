@@ -1,0 +1,42 @@
+@prefix json:             <https://www.essi.upc.edu/dtim/json-metamodel#> .
+@prefix nextiaDataSource: <http://www.essi.upc.edu/DTIM/NextiaDI/DataSource/> .
+@prefix nextiaSchema:     <http://www.essi.upc.edu/DTIM/NextiaDI/DataSource/Schema/> .
+@prefix rdf:              <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:             <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd:              <http://www.w3.org/2001/XMLSchema#> .
+
+<http://www.essi.upc.edu/DTIM/NextiaDI/DataSource/Schema/c8551b9c30a94ee4a706b0b4f948ba22/website>
+        rdf:type     rdf:Property ;
+        rdfs:domain  <http://www.essi.upc.edu/DTIM/NextiaDI/DataSource/Schema/c8551b9c30a94ee4a706b0b4f948ba22/museum2> ;
+        rdfs:label   "website" ;
+        rdfs:range   xsd:string .
+
+<http://www.essi.upc.edu/DTIM/NextiaDI/DataSource/Schema/c8551b9c30a94ee4a706b0b4f948ba22/acronym>
+        rdf:type     rdf:Property ;
+        rdfs:domain  <http://www.essi.upc.edu/DTIM/NextiaDI/DataSource/Schema/c8551b9c30a94ee4a706b0b4f948ba22/museum2> ;
+        rdfs:label   "acronym" ;
+        rdfs:range   xsd:string .
+
+nextiaDataSource:c8551b9c30a94ee4a706b0b4f948ba22
+        rdf:type                       <http://www.essi.upc.edu/DTIM/NextiaDI/DataSource> ;
+        rdfs:label                     "museum2" ;
+        nextiaDataSource:description   "" ;
+        nextiaDataSource:format        "CSV" ;
+        nextiaDataSource:graphicalGraph
+                "{\"nodes\":[{\"id\":\"Class1\",\"iri\":\"http://www.essi.upc.edu/DTIM/NextiaDI/DataSource/Schema/c8551b9c30a94ee4a706b0b4f948ba22/website\",\"iriType\":\"http://www.w3.org/1999/02/22-rdf-syntax-ns#Property\",\"shortType\":\"rdf:Property\",\"type\":\"datatype\",\"label\":\"website\",\"domain\":\"http://www.essi.upc.edu/DTIM/NextiaDI/DataSource/Schema/c8551b9c30a94ee4a706b0b4f948ba22/museum2\",\"range\":\"http://www.w3.org/2001/XMLSchema#string\",\"isIntegrated\":false,\"linkId\":\"Link1\"},{\"id\":\"Class2\",\"iri\":\"http://www.essi.upc.edu/DTIM/NextiaDI/DataSource/Schema/c8551b9c30a94ee4a706b0b4f948ba22/museum2\",\"iriType\":\"http://www.w3.org/2000/01/rdf-schema#Class\",\"shortType\":\"rdfs:Class\",\"type\":\"class\",\"label\":\"museum2\",\"domain\":\"\",\"range\":\"\",\"isIntegrated\":false},{\"id\":\"Class3\",\"iri\":\"http://www.essi.upc.edu/DTIM/NextiaDI/DataSource/Schema/c8551b9c30a94ee4a706b0b4f948ba22/country\",\"iriType\":\"http://www.w3.org/1999/02/22-rdf-syntax-ns#Property\",\"shortType\":\"rdf:Property\",\"type\":\"datatype\",\"label\":\"country\",\"domain\":\"http://www.essi.upc.edu/DTIM/NextiaDI/DataSource/Schema/c8551b9c30a94ee4a706b0b4f948ba22/museum2\",\"range\":\"http://www.w3.org/2001/XMLSchema#string\",\"isIntegrated\":false,\"linkId\":\"Link2\"},{\"id\":\"Class4\",\"iri\":\"http://www.essi.upc.edu/DTIM/NextiaDI/DataSource/Schema/c8551b9c30a94ee4a706b0b4f948ba22/acronym\",\"iriType\":\"http://www.w3.org/1999/02/22-rdf-syntax-ns#Property\",\"shortType\":\"rdf:Property\",\"type\":\"datatype\",\"label\":\"acronym\",\"domain\":\"http://www.essi.upc.edu/DTIM/NextiaDI/DataSource/Schema/c8551b9c30a94ee4a706b0b4f948ba22/museum2\",\"range\":\"http://www.w3.org/2001/XMLSchema#string\",\"isIntegrated\":false,\"linkId\":\"Link3\"},{\"id\":\"Datatype6\",\"iri\":\"http://www.w3.org/2001/XMLSchema#string\",\"shortType\":\"xsd:String\",\"type\":\"xsdType\",\"label\":\"string\",\"domain\":\"\",\"range\":\"\",\"isIntegrated\":false},{\"id\":\"Datatype7\",\"iri\":\"http://www.w3.org/2001/XMLSchema#string\",\"shortType\":\"xsd:String\",\"type\":\"xsdType\",\"label\":\"string\",\"domain\":\"\",\"range\":\"\",\"isIntegrated\":false},{\"id\":\"Datatype8\",\"iri\":\"http://www.w3.org/2001/XMLSchema#string\",\"shortType\":\"xsd:String\",\"type\":\"xsdType\",\"label\":\"string\",\"domain\":\"\",\"range\":\"\",\"isIntegrated\":false}],\"links\":[{\"id\":\"Link1\",\"nodeId\":\"Class1\",\"source\":\"Class2\",\"target\":\"Datatype6\",\"label\":\"website\"},{\"id\":\"Link2\",\"nodeId\":\"Class3\",\"source\":\"Class2\",\"target\":\"Datatype7\",\"label\":\"country\"},{\"id\":\"Link3\",\"nodeId\":\"Class4\",\"source\":\"Class2\",\"target\":\"Datatype8\",\"label\":\"acronym\"}]}" ;
+        nextiaDataSource:hasFileName   "JPV7SdMAIYnQMq1u_museums.csv" ;
+        nextiaDataSource:hasFileSize   "158bytes" ;
+        nextiaDataSource:hasProjectID  "0223c71a7d524a88a94af10f3c220117" ;
+        nextiaDataSource:id            "c8551b9c30a94ee4a706b0b4f948ba22" ;
+        nextiaDataSource:path          "/Users/javierflores/Documents/upc/projects/newODIN/api/landing_zone/temporal/ds/JPV7SdMAIYnQMq1u_museums.csv" ;
+        nextiaDataSource:wrapper       "SELECT acronym AS acronym,website AS website,country AS country FROM museum2" .
+
+<http://www.essi.upc.edu/DTIM/NextiaDI/DataSource/Schema/c8551b9c30a94ee4a706b0b4f948ba22/country>
+        rdf:type     rdf:Property ;
+        rdfs:domain  <http://www.essi.upc.edu/DTIM/NextiaDI/DataSource/Schema/c8551b9c30a94ee4a706b0b4f948ba22/museum2> ;
+        rdfs:label   "country" ;
+        rdfs:range   xsd:string .
+
+<http://www.essi.upc.edu/DTIM/NextiaDI/DataSource/Schema/c8551b9c30a94ee4a706b0b4f948ba22/museum2>
+        rdf:type    rdfs:Class ;
+        rdfs:label  "museum2" .

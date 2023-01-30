@@ -188,7 +188,8 @@ public class NextiaQR_new {
 //                        spark.read().json(w.getPath()).createOrReplaceTempView(w.getLabel());
                         break;
                     case "CSV":
-                        spark.read().csv(w.getPath()).createOrReplaceTempView(w.getLabel());
+
+                        spark.read().option("header",true).csv(w.getPath()).createOrReplaceTempView(w.getLabel());
                         break;
                 }
                 spark.sql(w.getImplementation()).createOrReplaceTempView(GraphOperations.nn(w.getWrapper()));

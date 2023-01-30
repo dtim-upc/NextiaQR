@@ -1,0 +1,35 @@
+@prefix json:             <https://www.essi.upc.edu/dtim/json-metamodel#> .
+@prefix nextiaDataSource: <http://www.essi.upc.edu/DTIM/NextiaDI/DataSource/> .
+@prefix nextiaSchema:     <http://www.essi.upc.edu/DTIM/NextiaDI/DataSource/Schema/> .
+@prefix rdf:              <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:             <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd:              <http://www.w3.org/2001/XMLSchema#> .
+
+<http://www.essi.upc.edu/DTIM/NextiaDI/DataSource/Schema/http://www.essi.upc.edu/DTIM/NextiaDI/DataSource/Schema/4075a2ff31014426bec506023b5bda7e/lm.country>
+        rdf:type     rdf:Property ;
+        rdfs:domain  <http://www.essi.upc.edu/DTIM/NextiaDI/DataSource/Schema/http://www.essi.upc.edu/DTIM/NextiaDI/DataSource/Schema/4075a2ff31014426bec506023b5bda7e/lm> ;
+        rdfs:label   "country" ;
+        rdfs:range   xsd:string .
+
+<http://www.essi.upc.edu/DTIM/NextiaDI/DataSource/Schema/http://www.essi.upc.edu/DTIM/NextiaDI/DataSource/Schema/4075a2ff31014426bec506023b5bda7e/lm>
+        rdf:type  rdfs:Class .
+
+<http://www.essi.upc.edu/DTIM/NextiaDI/DataSource/Schema/http://www.essi.upc.edu/DTIM/NextiaDI/DataSource/Schema/4075a2ff31014426bec506023b5bda7e/lm.name>
+        rdf:type     rdf:Property ;
+        rdfs:domain  <http://www.essi.upc.edu/DTIM/NextiaDI/DataSource/Schema/http://www.essi.upc.edu/DTIM/NextiaDI/DataSource/Schema/4075a2ff31014426bec506023b5bda7e/lm> ;
+        rdfs:label   "name" ;
+        rdfs:range   xsd:string .
+
+nextiaDataSource:4075a2ff31014426bec506023b5bda7e
+        rdf:type                       <http://www.essi.upc.edu/DTIM/NextiaDI/DataSource> ;
+        rdfs:label                     "lm" ;
+        nextiaDataSource:description   "" ;
+        nextiaDataSource:format        "CSV" ;
+        nextiaDataSource:graphicalGraph
+                "{\"nodes\":[{\"id\":\"Class1\",\"iri\":\"http://www.essi.upc.edu/DTIM/NextiaDI/DataSource/Schema/http://www.essi.upc.edu/DTIM/NextiaDI/DataSource/Schema/4075a2ff31014426bec506023b5bda7e/lm.name\",\"iriType\":\"http://www.w3.org/1999/02/22-rdf-syntax-ns#Property\",\"shortType\":\"rdf:Property\",\"type\":\"datatype\",\"label\":\"name\",\"domain\":\"http://www.essi.upc.edu/DTIM/NextiaDI/DataSource/Schema/http://www.essi.upc.edu/DTIM/NextiaDI/DataSource/Schema/4075a2ff31014426bec506023b5bda7e/lm\",\"range\":\"http://www.w3.org/2001/XMLSchema#string\",\"isIntegrated\":false,\"linkId\":\"Link1\"},{\"id\":\"Class3\",\"iri\":\"http://www.essi.upc.edu/DTIM/NextiaDI/DataSource/Schema/http://www.essi.upc.edu/DTIM/NextiaDI/DataSource/Schema/4075a2ff31014426bec506023b5bda7e/lm.country\",\"iriType\":\"http://www.w3.org/1999/02/22-rdf-syntax-ns#Property\",\"shortType\":\"rdf:Property\",\"type\":\"datatype\",\"label\":\"country\",\"domain\":\"http://www.essi.upc.edu/DTIM/NextiaDI/DataSource/Schema/http://www.essi.upc.edu/DTIM/NextiaDI/DataSource/Schema/4075a2ff31014426bec506023b5bda7e/lm\",\"range\":\"http://www.w3.org/2001/XMLSchema#string\",\"isIntegrated\":false,\"linkId\":\"Link2\"},{\"id\":\"Class4\",\"iri\":\"http://www.essi.upc.edu/DTIM/NextiaDI/DataSource/Schema/http://www.essi.upc.edu/DTIM/NextiaDI/DataSource/Schema/4075a2ff31014426bec506023b5bda7e/lm\",\"iriType\":\"http://www.w3.org/2000/01/rdf-schema#Class\",\"shortType\":\"rdfs:Class\",\"type\":\"class\",\"label\":\"lm\",\"domain\":\"\",\"range\":\"\",\"isIntegrated\":false},{\"id\":\"Datatype5\",\"iri\":\"http://www.w3.org/2001/XMLSchema#string\",\"shortType\":\"xsd:String\",\"type\":\"xsdType\",\"label\":\"string\",\"domain\":\"\",\"range\":\"\",\"isIntegrated\":false},{\"id\":\"Datatype6\",\"iri\":\"http://www.w3.org/2001/XMLSchema#string\",\"shortType\":\"xsd:String\",\"type\":\"xsdType\",\"label\":\"string\",\"domain\":\"\",\"range\":\"\",\"isIntegrated\":false}],\"links\":[{\"id\":\"Link1\",\"nodeId\":\"Class1\",\"source\":\"Class4\",\"target\":\"Datatype5\",\"label\":\"name\"},{\"id\":\"Link2\",\"nodeId\":\"Class3\",\"source\":\"Class4\",\"target\":\"Datatype6\",\"label\":\"country\"}]}" ;
+        nextiaDataSource:hasFileName   "Agvgou6NQDMmRLow_museums.csv" ;
+        nextiaDataSource:hasFileSize   "53bytes" ;
+        nextiaDataSource:hasProjectID  "84ec53d47b7e48fc814718d65ff07b7a" ;
+        nextiaDataSource:id            "4075a2ff31014426bec506023b5bda7e" ;
+        nextiaDataSource:path          "/Users/javierflores/Documents/upc/projects/newODIN/api/landing_zone/temporal/ds/Agvgou6NQDMmRLow_museums.csv" ;
+        nextiaDataSource:wrapper       "SELECT name AS name,country AS country FROM http://www.essi.upc.edu/DTIM/NextiaDI/DataSource/Schema/4075a2ff31014426bec506023b5bda7e/lm" .

@@ -1,0 +1,34 @@
+@prefix json:             <https://www.essi.upc.edu/dtim/json-metamodel#> .
+@prefix nextiaDataSource: <http://www.essi.upc.edu/DTIM/NextiaDI/DataSource/> .
+@prefix nextiaSchema:     <http://www.essi.upc.edu/DTIM/NextiaDI/DataSource/Schema/ad28a7bf92094f1e8409cb503963eb5a/> .
+@prefix rdf:              <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:             <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd:              <http://www.w3.org/2001/XMLSchema#> .
+
+nextiaDataSource:ad28a7bf92094f1e8409cb503963eb5a
+        rdf:type                       <http://www.essi.upc.edu/DTIM/NextiaDI/DataSource> ;
+        rdfs:label                     "pop" ;
+        nextiaDataSource:description   "" ;
+        nextiaDataSource:format        "JSON" ;
+        nextiaDataSource:graphicalGraph
+                "{\"nodes\":[{\"id\":\"Class1\",\"iri\":\"http://www.essi.upc.edu/DTIM/NextiaDI/DataSource/Schema/ad28a7bf92094f1e8409cb503963eb5a/name\",\"iriType\":\"http://www.w3.org/1999/02/22-rdf-syntax-ns#Property\",\"shortType\":\"rdf:Property\",\"type\":\"datatype\",\"label\":\"name\",\"domain\":\"http://www.essi.upc.edu/DTIM/NextiaDI/DataSource/Schema/ad28a7bf92094f1e8409cb503963eb5a/Object_1\",\"range\":\"http://www.w3.org/2001/XMLSchema#string\",\"isIntegrated\":false,\"linkId\":\"Link1\"},{\"id\":\"Class2\",\"iri\":\"http://www.essi.upc.edu/DTIM/NextiaDI/DataSource/Schema/ad28a7bf92094f1e8409cb503963eb5a/Object_1\",\"iriType\":\"http://www.w3.org/2000/01/rdf-schema#Class\",\"shortType\":\"rdfs:Class\",\"type\":\"class\",\"label\":\"pop\",\"domain\":\"\",\"range\":\"\",\"isIntegrated\":false},{\"id\":\"Class4\",\"iri\":\"http://www.essi.upc.edu/DTIM/NextiaDI/DataSource/Schema/ad28a7bf92094f1e8409cb503963eb5a/country\",\"iriType\":\"http://www.w3.org/1999/02/22-rdf-syntax-ns#Property\",\"shortType\":\"rdf:Property\",\"type\":\"datatype\",\"label\":\"country\",\"domain\":\"http://www.essi.upc.edu/DTIM/NextiaDI/DataSource/Schema/ad28a7bf92094f1e8409cb503963eb5a/Object_1\",\"range\":\"http://www.w3.org/2001/XMLSchema#string\",\"isIntegrated\":false,\"linkId\":\"Link2\"},{\"id\":\"Datatype5\",\"iri\":\"http://www.w3.org/2001/XMLSchema#string\",\"shortType\":\"xsd:String\",\"type\":\"xsdType\",\"label\":\"string\",\"domain\":\"\",\"range\":\"\",\"isIntegrated\":false},{\"id\":\"Datatype6\",\"iri\":\"http://www.w3.org/2001/XMLSchema#string\",\"shortType\":\"xsd:String\",\"type\":\"xsdType\",\"label\":\"string\",\"domain\":\"\",\"range\":\"\",\"isIntegrated\":false}],\"links\":[{\"id\":\"Link1\",\"nodeId\":\"Class1\",\"source\":\"Class2\",\"target\":\"Datatype5\",\"label\":\"name\"},{\"id\":\"Link2\",\"nodeId\":\"Class4\",\"source\":\"Class2\",\"target\":\"Datatype6\",\"label\":\"country\"}]}" ;
+        nextiaDataSource:hasFileName   "14AU4tbq6qHzP7ra_museums.json" ;
+        nextiaDataSource:hasFileSize   "40bytes" ;
+        nextiaDataSource:hasProjectID  "201cbc730c364b6f9f794d8dcf304687" ;
+        nextiaDataSource:id            "ad28a7bf92094f1e8409cb503963eb5a" ;
+        nextiaDataSource:path          "/Users/javierflores/Documents/upc/projects/newODIN/api/landing_zone/temporal/ds/14AU4tbq6qHzP7ra_museums.json" ;
+        nextiaDataSource:wrapper       "SELECT country,name FROM pop " .
+
+nextiaSchema:country  rdf:type  rdf:Property ;
+        rdfs:domain  nextiaSchema:Object_1 ;
+        rdfs:label   "country" ;
+        rdfs:range   xsd:string .
+
+nextiaSchema:name  rdf:type  rdf:Property ;
+        rdfs:domain  nextiaSchema:Object_1 ;
+        rdfs:label   "name" ;
+        rdfs:range   xsd:string .
+
+nextiaSchema:Object_1
+        rdf:type    rdfs:Class ;
+        rdfs:label  "pop" .

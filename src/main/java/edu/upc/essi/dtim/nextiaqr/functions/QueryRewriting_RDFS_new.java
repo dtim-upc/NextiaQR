@@ -349,11 +349,14 @@ public class QueryRewriting_RDFS_new {
                 ResultSet W = RDFUtil.runAQuery(query, T);
                 W.forEachRemaining(wRes -> {
                     String w = wRes.get("g").asResource().getURI();
-                        String attribute = attributePerFeatureAndWrapper.get(new Tuple2<>(new Wrapper(w), f));
+                    String attribute = attributePerFeatureAndWrapper.get(new Tuple2<>(new Wrapper(w), f));
+//                    if(attribute != null) {
                         attsPerWrapper.putIfAbsent(new Wrapper(w), Sets.newHashSet());
                         Set<String> currentSet = attsPerWrapper.get(new Wrapper(w));
                         currentSet.add(attribute);
                         attsPerWrapper.put(new Wrapper(w), currentSet);
+//                    }
+
                 });
             }
         }
