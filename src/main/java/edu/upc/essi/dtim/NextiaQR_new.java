@@ -413,8 +413,8 @@ public class NextiaQR_new {
 //                        " <http://www.essi.upc.edu/DTIM/NextiaDI/DataSource/Schema/b0e193ea4a81462eb0b24ff5b1801e6d/Object_1> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2000/01/rdf-schema#Class>  " +
 //                        " } ";
 
-                n.query(sourceGraphs, globalSchema, subgraphs, query );
-
+                RDFSResult result = n.query(sourceGraphs, globalSchema, subgraphs, query);
+                result.getRows().forEach(System.out::println);
 
                 break;
 
